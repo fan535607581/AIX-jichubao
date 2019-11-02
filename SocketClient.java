@@ -104,7 +104,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
  
         public String txt1;
         public String IP;
-        public int[] i=new {0,1,2,3,4,5,6,7,8,9,10};
+        public int[]i=new int[]{0,1,2,3,4,5,6,7,8,9,10};
         Message msg;
         public int flag;
         public MyThread(int flag) {
