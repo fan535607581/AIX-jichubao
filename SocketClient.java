@@ -102,14 +102,14 @@ public class SocketClient extends AndroidNonvisibleComponent {
     }
     class MyThread extends Thread {
  
-        public String txt1;
+        public int txt1;
         public String IP;
         Message msg;
         public int flag;
         public MyThread(int flag) {
             this.flag = flag;
         }
-        public void setText(String s){
+        public void setText(int s){
             txt1 = s;
         }
         public void setIP(String ip){
