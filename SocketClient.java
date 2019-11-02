@@ -76,7 +76,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
     }
     @SimpleFunction(description = "start")
-    public void sendMessage(String s){
+    public void sendMessage(int s){
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
             mt.setText(s);
@@ -102,7 +102,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     }
     class MyThread extends Thread {
  
-        public String txt1;
+        public int txt1;
         public String IP;
         public int[]i=new int[]{0,1,2,3,4,5,6,7,8,9,10};
         Message msg;
@@ -110,7 +110,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public MyThread(int flag) {
             this.flag = flag;
         }
-        public void setText(String s){
+        public void setText(int s){
             txt1 = s;
         }
         public void setIP(String ip){
@@ -144,7 +144,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 break;
                 case SENDMESSAGE:
                     try {
-                        ou.write(i[1]);//
+                        ou.write(i[txt1]);//
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
                         myHandler.sendMessage(msg);
