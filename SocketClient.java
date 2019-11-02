@@ -110,7 +110,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             this.flag = flag;
         }
         public void setText(int s){
-            int_to_srting s;
+            Integer.to String(int s)
             txt1 = s;
         }
         public void setIP(String ip){
