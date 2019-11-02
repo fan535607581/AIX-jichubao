@@ -76,7 +76,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
     }
     @SimpleFunction(description = "start")
-    public void sendMessage(String s){
+    public void sendMessage(int s){
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
             mt.setText(s);
@@ -109,7 +109,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public MyThread(int flag) {
             this.flag = flag;
         }
-        public void setText(String s){
+        public void setText(int s){
+            int_to_srting s;
             txt1 = s;
         }
         public void setIP(String ip){
@@ -143,7 +144,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 break;
                 case SENDMESSAGE:
                     try {
-                        ou.write(null.getBytes("utf-8"));//
+                        ou.write(txt1.getBytes("utf-8"));//
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
                         myHandler.sendMessage(msg);
