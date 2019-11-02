@@ -114,7 +114,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             this.txt2 = txt2;
         }
         public void setText(String s){
-            txt2 = s;
+            txt1 = s;
         }
         public void setIP(String ip){
             IP = ip;
