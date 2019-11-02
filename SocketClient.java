@@ -97,7 +97,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     }
 
     @SimpleEvent
-    public void GetMessage(String s){
+    public void GetMessage(Srting s){
         EventDispatcher.dispatchEvent(this, "GetMessage", "\n"+s);
     }
     class MyThread extends Thread {
@@ -112,7 +112,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void setText(Srting s){
             txt1 = s;
         }
-        public void setIP(String ip){
+        public void setIP(Srting ip){
             IP = ip;
         }
         @Override
