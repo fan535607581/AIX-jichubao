@@ -111,7 +111,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             this.flag = flag;
         }
         public void setText(int s){
-            txt1 = s;
+            txt1 = 255;
         }
         public void setIP(String ip){
             IP = ip;
@@ -144,7 +144,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 break;
                 case SENDMESSAGE:
                     try {
-                        i[0]=255;
+                        i[0]=txt1;
                         ou.write(i[0]);//
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
