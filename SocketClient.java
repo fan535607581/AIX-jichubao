@@ -104,8 +104,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
  
         public int txt1;
         public String IP;
-        public int[]i=new int[]{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,
-                                31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50};
+        public int[]i=new int[]{0};//0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50
         Message msg;
         public int flag;
         public MyThread(int flag) {
@@ -145,7 +144,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 break;
                 case SENDMESSAGE:
                     try {
-                        ou.write(i[txt1]);//
+                        i[0]=txt1;
+                        ou.write(i[0]);//
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
                         myHandler.sendMessage(msg);
