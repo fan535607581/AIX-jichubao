@@ -104,9 +104,9 @@ public class SocketClient extends AndroidNonvisibleComponent {
  
         public String txt1;
         public String IP;
+        int[] i=new {0,1,2,3,4,5,6,7,8,9,10};
         Message msg;
         public int flag;
-        public int fght;
         public MyThread(int flag) {
             this.flag = flag;
         }
@@ -144,8 +144,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 break;
                 case SENDMESSAGE:
                     try {
-                        fght = 0;
-                        ou.write(int fght);//txt1.getBytes()
+                        ou.write(txt1.getBytes());//
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
                         myHandler.sendMessage(msg);
