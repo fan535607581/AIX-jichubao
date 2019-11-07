@@ -79,7 +79,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public void sendMessage(byte s1 , byte s2){
         
         if(socket != null){
-            public byte k;
             mt = new MyThread(SENDMESSAGE);
             mt.setText(s1,s1);
             mt.setText(s2,s2);
