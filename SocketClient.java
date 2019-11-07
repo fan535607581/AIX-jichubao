@@ -76,10 +76,10 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
     }
     @SimpleFunction(description = "start")
-    public void sendMessage(byte s){
+    public void sendMessage(byte s,byte b){
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
-            mt.setText(s , 1);
+            mt.setText(s , b);
             mt.start();
         }else{
             GetMessage("连接未创建！");
@@ -110,7 +110,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             this.flag = flag;
         }
         public void setText(byte s , byte b ){
-            i[b]= s;
+            i[b] = s;
         }
         public void setIP(String ip){
             IP = ip;
