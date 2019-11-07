@@ -80,7 +80,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
-            mt.setText(s1,s1);
+           s1=0; mt.setText(s1,s1);
             mt.setText(s2,s2);
             mt.start();
         }else{
