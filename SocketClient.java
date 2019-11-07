@@ -104,7 +104,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
  
         public byte txt1;
         public String IP;
-        public byte[]i=new byte[]{11};
+        public byte[]i=new byte[]{0};
         Message msg;
         public int flag;
         public MyThread(int flag) {
@@ -145,6 +145,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 case SENDMESSAGE:
                     try {
                         i[0]=txt1;
+                        
                         ou.write(i[0]);//
                         ou.write(i[0]);
                         ou.write(i[0]);
