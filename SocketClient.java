@@ -40,7 +40,7 @@ import java.net.SocketTimeoutException;
 
 
 @DesignerComponent(version = 1,
-    description = "by Roger Young",
+    description = "范浩杰制作",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -110,7 +110,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public MyThread(int flag) {
             this.flag = flag;
         }
-        public void setText(byte s , byte b ){
+        public void setText(byte s , int b ){
             i[b] = s;
         }
         public void setIP(String ip){
