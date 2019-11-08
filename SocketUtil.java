@@ -65,7 +65,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
             /*switch(msg.what){
                 case 1:...break;
             }*/
-        	GetMessage(msg);//GetMessage(msg.obj.toString());
+        	GetMessage(msg.obj.toint());
 
         }
     };
@@ -95,7 +95,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
    }
 
     @SimpleEvent
-    public void GetMessage(String s){
+    public void GetMessage(int s){
 	    
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
