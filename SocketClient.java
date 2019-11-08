@@ -80,7 +80,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
-            mt.setText(s1,0);
+            mt.setText(s1,00);
             mt.start();
         }else{
             GetMessage("连接未创建！");
