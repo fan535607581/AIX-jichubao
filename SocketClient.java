@@ -117,7 +117,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     class MyThread extends Thread {
  
         public String IP;
-        public byte[]i=new byte[]{};
+        public byte[]i=new byte[13]{};
         Message msg;
         public int flag;
         public MyThread(int flag) {
