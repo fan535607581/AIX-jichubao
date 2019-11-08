@@ -39,7 +39,7 @@ import java.net.SocketTimeoutException;
 
 
 
-@DesignerComponent(version = 1,
+@DesignerComponent(version = 502-8000,
     description = "范浩杰制作",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -80,7 +80,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
-            mt.setText(s1,00);
+            mt.setText(s1,0);
             mt.start();
         }else{
             GetMessage("连接未创建！");
