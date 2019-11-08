@@ -38,7 +38,7 @@ import java.util.Enumeration;
 
 
 @DesignerComponent(version = SocketUtil.VERSION,
-    description = "fan hao jie mode",
+    description = "Made in fan hao jie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -95,7 +95,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
    }
 
     @SimpleEvent
-    public void GetMessage(int s){
+    public void GetMessage(String s){
 	    
        // EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
