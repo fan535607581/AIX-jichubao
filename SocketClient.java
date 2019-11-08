@@ -39,8 +39,8 @@ import java.net.SocketTimeoutException;
 
 
 
-@DesignerComponent(version = 502-8000,
-    description = "范浩杰制作",
+@DesignerComponent(version = 1,
+    description = "fan hao jie mode",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
