@@ -166,13 +166,13 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                 while(true)
 		{
                    
-                    int msg = 255;
-                    //msg = br.readLine();
-                    if(msg != 0)
+                    String msg = 255;
+                    msg = br.readLine();
+                    if(msg != null)
 		    {
-                       // message_2 = handler.obtainMessage();
-                       	//message_2.obj = msg;
-                        handler.sendMessage2(msg);
+                       message_2 = handler.obtainMessage();
+                       message_2.obj = msg;
+                       handler.sendMessage(message_2);
                     }
                 }
 		   /*
