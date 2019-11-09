@@ -69,7 +69,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 	
         public void handleMessage2(Message msg)//////////**********************
 	{
-        	GetMessage2(msg.obj.toString());
+        	GetMessage2(100);
         }///////////******************************
     };
 	
