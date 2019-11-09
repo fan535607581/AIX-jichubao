@@ -67,10 +67,10 @@ public class SocketUtil extends AndroidNonvisibleComponent {
         	GetMessage(msg.obj.toString());
         }
 	
-        public void handleMessage2(int m)
+        public void handleMessage2(int m)//////////**********************
 	{
         	GetMessage2(m);
-        }
+        }///////////******************************
     };
 	
     public SocketUtil(ComponentContainer container) {
@@ -106,7 +106,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
     @SimpleEvent//////////////////////////*******
     public void GetMessage2(int s){
 	    
-        EventDispatcher.dispatchEvent(this, "GetMessage", s);
+        EventDispatcher.dispatchEvent(this, "GetMessage2", s);
     }/////////////////////////////////********
 	
     @SimpleFunction(description = "start")
@@ -169,7 +169,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                     if(msg != null){
                         message_2 = handler.obtainMessage();
                        	message_2.obj = msg;
-                        handler.sendMessage(message_2);
+                        handler.sendMessage2(message_2);
                     }
                 }
 	        } catch (IOException e) {
