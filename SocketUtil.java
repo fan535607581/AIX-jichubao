@@ -58,19 +58,17 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 
     private InputStream inputStream;
 
-    public Handler handler = new Handler(){
-
+    public Handler handler = new Handler()
+    {
         @Override
-        public void handleMessage(Message msg) {
-            /*switch(msg.what){
-                case 1:...break;
-            }*/
+        public void handleMessage(Message msg)
+	{
         	GetMessage(msg.obj.toString());
-
         }
     };
 	
-    public SocketUtil(ComponentContainer container) {
+    public SocketUtil(ComponentContainer container) 
+    {
         super(container.$form());
         this.container = container;
         context = (Context) container.$context();
@@ -157,7 +155,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                     msg = br.readLine();
                     if(msg != null){
                         message_2 = handler.obtainMessage();
-                        message_2.obj = socket.getInetAddress().getHostAddress()+":"+msg;
+                        message_2.obj = msg;
                         handler.sendMessage(message_2);
                     }
                 }
