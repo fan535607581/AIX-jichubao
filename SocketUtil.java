@@ -60,18 +60,12 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 
     public Handler handler = new Handler()
     {
-
         @Override
         public void handleMessage(Message msg)
 	{
         	GetMessage(msg.obj.toString());
         }
-	
-        public void handleMessage2(Message msg)//////////**********************
-	{
-        	GetMessage2(msg.obj.toString());
-        }///////////******************************
-    };
+    }
 	
     public SocketUtil(ComponentContainer container) {
         super(container.$form());
