@@ -172,8 +172,6 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 		    {
                        message_2 = handler.obtainMessage();
                        message_2.obj = msg;
-			int num = integer.valueOf(message_2);
-			int sum=num + 1;
                        handler.sendMessage(msg);
                     }
                 }
