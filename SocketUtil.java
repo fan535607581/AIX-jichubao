@@ -100,7 +100,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
     @SimpleEvent
     public void GetMessage(String s)
     {
-	integer.valueOF(s);   
+	//integer.valueOF(s);   
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
 	
