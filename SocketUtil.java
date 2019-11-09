@@ -97,7 +97,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
     @SimpleEvent
     public void GetMessage(String s){
 	    
-        EventDispatcher.dispatchEvent(this, "GetMessage", s);
+        EventDispatcher.dispatchEvent(this, "GetMessage", "asdf");
     }
     @SimpleFunction(description = "start")
     public void receiveData(){
