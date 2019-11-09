@@ -58,14 +58,18 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 
     private InputStream inputStream;
 
-    public Handler handler = new Handler(){
+    public Handler handler = new Handler()
+    {
 
         @Override
-        public void handleMessage(Message msg) {
-            /*switch(msg.what){
-                case 1:...break;
-            }*/
+        public void handleMessage(Message msg)
+	{
         	GetMessage(msg.obj.toString());
+        }
+	@Override
+        public void handleMessage2(int m)
+	{
+        	GetMessage(m);
         }
     };
 	
