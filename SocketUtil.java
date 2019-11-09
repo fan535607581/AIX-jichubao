@@ -67,9 +67,9 @@ public class SocketUtil extends AndroidNonvisibleComponent {
         	GetMessage(msg.obj.toString());
         }
 	
-        public void handleMessage2(int m)//////////**********************
+        public void handleMessage2(Message msg)//////////**********************
 	{
-        	GetMessage2(m);
+        	GetMessage2(msg.obj.toString());
         }///////////******************************
     };
 	
@@ -172,7 +172,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 		    {
                        message_2 = handler.obtainMessage();
                        message_2.obj = msg;
-                       handler.sendMessage(msg);
+                       handler.sendMessage2(message_2);
                     }
                 }
 		   /*
