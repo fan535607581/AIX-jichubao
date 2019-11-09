@@ -65,7 +65,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
             /*switch(msg.what){
                 case 1:...break;
             }*/
-        	GetMessage(100);
+        	GetMessage(msg.obj.toString());
 
         }
     };
