@@ -126,7 +126,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                 getLocalIpAddress(serverSocket);
 
                 Message message_1 = handler.obtainMessage();
-                message_1.obj = "IP:" + ip + " PORT: " + port;
+                message_1.obj = "IP:" + ip + " : " + port;
                 handler.sendMessage(message_1);
 
                 while (true){
@@ -134,7 +134,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                     try {
                         socket = serverSocket.accept();
                         Message message_2 = handler.obtainMessage();
-                        message_2.obj = "有兄弟连上了！"+socket.getInetAddress().getHostAddress();
+                        message_2.obj = "连上了！"+socket.getInetAddress().getHostAddress();
                         handler.sendMessage(message_2);
                     } catch (IOException e) {
                     }
@@ -172,7 +172,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 		    {
                        message_2 = handler.obtainMessage();
                        message_2.obj = msg;
-                       handler.sendMessage2("100");
+                       handler.sendMessage(message_2);
                     }
                 }
 		   /*
