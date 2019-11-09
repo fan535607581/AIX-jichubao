@@ -67,10 +67,10 @@ public class SocketUtil extends AndroidNonvisibleComponent {
             }*/
         	GetMessage(msg.obj.toString());
         }
-	@Override//////////////////////*************
+	@Override//////////*************
         public void handleMessage2(int msg) 
 	{
-        	GetMessage2(msg);
+        	GetMessage2(msg.obj.toString());
         }///////////***********************
     };
 	
