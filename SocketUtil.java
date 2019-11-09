@@ -104,12 +104,6 @@ public class SocketUtil extends AndroidNonvisibleComponent {
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
 	
-    @SimpleEvent//////////////////////////*******
-    public void GetMessage2(String s){
-	    
-        EventDispatcher.dispatchEvent(this, "GetMessage2", s);
-    }/////////////////////////////////********
-	
     @SimpleFunction(description = "start")
     public void receiveData(){
 
@@ -151,51 +145,37 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 
 	class ServerThread extends Thread{
 
-	    Socket socket;
+	Socket socket;
         Message message_2;
-
 
 	    public ServerThread(Socket socket){
 	        this.socket = socket;
 	    }
 
 	    @Override
-	    public void run() {
+	    public void run() 
+	    {
             try {
-                BufferedReader br = null;
-                br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                while(true)
-		{
-                   
-                    String msg = null;
-                    msg = br.readLine();
-                    if(msg != null)
-		    {
-                       message_2 = handler.obtainMessage();
-                       message_2.obj = msg;
-                       handler.sendMessage(message_2);
-                    }
-                }
-		   /*
-		   while(true)
-		{
-                   
-                   String msg = null;
-                    msg = br.readLine();
-                    if(msg != null)
-		    {
-                        message_2 = handler.obtainMessage();
-                       	message_2.obj = msg;
-                        handler.sendMessage(message_2);
-                    }
-                }*/
-		    
-	        } catch (IOException e) {
+			BufferedReader br = null;
+			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			while(true)
+			{
+			    String msg = null;
+			    msg = br.readLine();
+			    if(msg != null)
+			    {
+			       message_2 = handler.obtainMessage();
+			       message_2.obj = msg;
+			       handler.sendMessage(message_2);
+			    }
+			} 
+	        } 
+		catch (IOException e) {
                 message_2 = handler.obtainMessage();
                 message_2.obj = "他好像不见了";
                 handler.sendMessage(message_2);
                 try{socket.close();}catch(Exception e1){}
-	        }
+	 }
         }
 	}
 
