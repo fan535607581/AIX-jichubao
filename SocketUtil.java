@@ -87,9 +87,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                     }
                 }
             }
-      } catch (SocketException e) {
-         e.printStackTrace();
-      }
+      } catch (SocketException e) {e.printStackTrace();}
    }
 
     @SimpleEvent
@@ -103,12 +101,8 @@ public class SocketUtil extends AndroidNonvisibleComponent {
             @Override
             public void run() {
                 super.run();
-                /*指明服务器端的端口号*/
-                try {
-                    serverSocket = new ServerSocket(8000);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                try { serverSocket = new ServerSocket(8000); }
+		catch (IOException e) { e.printStackTrace();}
                 
                 getLocalIpAddress(serverSocket);
 
@@ -116,18 +110,18 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                 message_1.obj = "IP:" + ip + " PORT: " + port;
                 handler.sendMessage(message_1);
 
-                while (true){
+                while (true)
+		{
                     Socket socket = null;
                     try {
                         socket = serverSocket.accept();
                         Message message_2 = handler.obtainMessage();
-                        message_2.obj = "有兄弟连上了！"+socket.getInetAddress().getHostAddress();
+                        message_2.obj = "连上了！"+socket.getInetAddress().getHostAddress();
                         handler.sendMessage(message_2);
-                    } catch (IOException e) {
-                    }
+                   	 } 
+		    catch (IOException e) {}
 
                     new ServerThread(socket).start();
-
                 }
             }
         };
@@ -140,10 +134,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 	    Socket socket;
         Message message_2;
 
-
-	    public ServerThread(Socket socket){
-	        this.socket = socket;
-	    }
+	    public ServerThread(Socket socket){this.socket = socket; }
 
 	    @Override
 	    public void run() {
@@ -154,6 +145,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                     String msg = null;
                     msg = br.readLine();
                     if(msg != null){
+			return string2HexString(strmsg,"UTF-8");
 			message_2 = handler.obtainMessage();
                         message_2.obj = msg;
                         handler.sendMessage(message_2);
