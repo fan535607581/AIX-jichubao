@@ -150,7 +150,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 			String arr[] = msg.split(" ");//拆分字符串成字符串数组
 			int a[] = new int[arr.length];
 			for(int j = 0; j < a.length; j++){  a[j] = Integer.parseInt(arr[j]); }
-                        message_2.obj = msg;
+                        message_2.obj = a[0];
                         handler.sendMessage(message_2);
                     }
 			
