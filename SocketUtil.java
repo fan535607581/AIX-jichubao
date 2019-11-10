@@ -145,12 +145,9 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 			
                     int msg = 0;
 		    msg= br.read();
-                    //if(msg != 0)
-		    {
-			message_2 = handler.obtainMessage();
-                        message_2.obj = msg;
-                        handler.sendMessage(message_2);  
-                    }	
+		    message_2 = handler.obtainMessage();
+                    message_2.obj = msg;
+                    handler.sendMessage(message_2);  
                 }
 	        } catch (IOException e) {
                message_2 = handler.obtainMessage();
