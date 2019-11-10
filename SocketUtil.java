@@ -146,9 +146,9 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                     String msg = br.readLine();
 			
                     if(msg != null){
-			int a = msg.intValue();   
+			int b = Integer.parseInt(msg);  
 			message_2 = handler.obtainMessage();
-                        message_2.obj = a;
+                        message_2.obj = b;
                         handler.sendMessage(message_2);
                     }
 			
