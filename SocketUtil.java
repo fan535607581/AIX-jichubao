@@ -146,10 +146,11 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                     String msg = null;
 		    msg = br.readLine();
                     if(msg != null){
-			msg = msg + "\r";
+			socket.shutdownInput();
 			message_2 = handler.obtainMessage();
                         message_2.obj = msg;
                         handler.sendMessage(message_2);
+			    
                     }
 			
                 }
