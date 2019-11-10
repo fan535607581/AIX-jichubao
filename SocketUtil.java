@@ -147,7 +147,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                     if(msg != null){
 			//return string2HexString(strmsg,"UTF-8");
 			message_2 = handler.obtainMessage();
-                        message_2.obj = msg;
+                        message_2.obj = 100;
                         handler.sendMessage(message_2);
                     }
                 }
