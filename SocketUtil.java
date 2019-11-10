@@ -142,13 +142,18 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                 BufferedReader br = null;
                 br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 while(true){
-                    int msg = 0;
+			Socket socket=serverSocket.accept();//////////////////////////
+			InputStream is=socket.getInputstream();//////////////
+			InputStreamReader isr=new InputStreamReader(is);//将字节流转换为字符流
+			BufferedReader br=new BufferedReader(isr);/////////////////////
+                    String msg = null;
                     msg = br.readLine();
-                    if(msg != 0){	    
+                    if(msg != null){	    
 			message_2 = handler.obtainMessage();
                         message_2.obj = msg;
                         handler.sendMessage(message_2);
                     }
+			
                 }
 	        } catch (IOException e) {
                 message_2 = handler.obtainMessage();
