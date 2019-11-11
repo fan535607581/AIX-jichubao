@@ -76,16 +76,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
     }
     @SimpleFunction(description = "start")
-    public void sendMessage(byte s1 , byte s2 ,byte s3 ,byte s4 , byte s5 ,byte s6 , byte s7 , byte s8 ,byte s9 ,
-                           byte s10 , byte s11 ,byte s12 ){
+    public void sendMessage(int[] i ,){
         
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
-            mt.setText(s1,0);mt.setText(s1,1);
-            mt.setText(s2,2);mt.setText(s3,3);mt.setText(s4,4);
-            mt.setText(s5,5);mt.setText(s6,6);mt.setText(s7,7);
-            mt.setText(s8,8);mt.setText(s9,9);mt.setText(s10,10);
-            mt.setText(s11,11);mt.setText(s12,12);
+            mt.setText(i[0],0);
             mt.start();
         }else{
             GetMessage("连接未创建！");
