@@ -40,7 +40,7 @@ import java.net.SocketTimeoutException;
 
 
 @DesignerComponent(version = 1,
-    description = "made in fan hao jie ",
+    description = "made in fan hao jie \n QQ:535607581@qq.com \n 18700994371",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -150,11 +150,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 case SENDMESSAGE:
                     try {
                          for(int j = 0; j<13 ;j++)ou.write(i[j]);
-                        //ou.write(i[0]);  ou.write(i[1]);  ou.write(i[2]);  ou.write(i[3]);
-                        //ou.write(i[4]);  ou.write(i[5]);  ou.write(i[6]);  ou.write(i[7]);
-                        //ou.write(i[8]);  ou.write(i[9]);  ou.write(i[10]);  ou.write(i[11]);
-                        //ou.write(i[12]);
-                        
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
                         myHandler.sendMessage(msg);
