@@ -81,13 +81,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
         
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
-            for(int i = 0; i<14 ;i++)mt.setText(s1,i);
-                
-            //mt.setText(s1,0);mt.setText(s1,1);
-            //mt.setText(s2,2);mt.setText(s3,3);mt.setText(s4,4);
-            //mt.setText(s5,5);mt.setText(s6,6);mt.setText(s7,7);
-            //mt.setText(s8,8);mt.setText(s9,9);mt.setText(s10,10);
-           // mt.setText(s11,11);mt.setText(s12,12);
+            mt.setText(s1,0);mt.setText(s1,1);
+            mt.setText(s2,2);mt.setText(s3,3);mt.setText(s4,4);
+            mt.setText(s5,5);mt.setText(s6,6);mt.setText(s7,7);
+            mt.setText(s8,8);mt.setText(s9,9);mt.setText(s10,10);
+            mt.setText(s11,11);mt.setText(s12,12);
             mt.start();
         }else{
             GetMessage("连接未创建！");
@@ -151,19 +149,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 break;
                 case SENDMESSAGE:
                     try {
-                        ou.write(i[0]);//
-                        ou.write(i[1]);
-                        ou.write(i[2]);
-                        ou.write(i[3]);
-                        ou.write(i[4]);
-                        ou.write(i[5]);
-                        ou.write(i[6]);
-                        ou.write(i[7]);
-                        ou.write(i[8]);
-                        ou.write(i[9]);
-                        ou.write(i[10]);
-                        ou.write(i[11]);
-                        ou.write(i[12]);
+                         for(int j = 0; j<13 ;j++)ou.write(i[j]);
+                        //ou.write(i[0]);  ou.write(i[1]);  ou.write(i[2]);  ou.write(i[3]);
+                        //ou.write(i[4]);  ou.write(i[5]);  ou.write(i[6]);  ou.write(i[7]);
+                        //ou.write(i[8]);  ou.write(i[9]);  ou.write(i[10]);  ou.write(i[11]);
+                        //ou.write(i[12]);
                         
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
