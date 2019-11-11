@@ -76,7 +76,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
     }
     @SimpleFunction(description = "start")
-    public void sendMessage( int i){
+    public void sendMessage(byte i){
         
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
