@@ -38,7 +38,7 @@ import java.util.Enumeration;
 
 
 @DesignerComponent(version = SocketUtil.VERSION,
-    description = "made in fan hao jie \n QQ:535607581@qq.com ",
+    description = " made in fan hao jie    \n   e-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -46,7 +46,7 @@ import java.util.Enumeration;
 @SimpleObject(external = true)
 
 public class SocketUtil extends AndroidNonvisibleComponent {
-    public static final int VERSION = 1;
+    public static final int VERSION = 2;
     private static final String LOG_TAG = "SocketUtil";
     private ComponentContainer container;
     private Context context;
