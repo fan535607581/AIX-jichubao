@@ -91,9 +91,10 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
     }
     @SimpleFunction(description = "start")
-    public void connect(String ip){
+    public void connect(String ip , int port){
         if(socket == null){
             mt = new MyThread(CONNECT);
+            mt.setDK(port);
             mt.setIP(ip);
             mt.start();
         }else{
@@ -108,6 +109,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     class MyThread extends Thread {
  
         public String IP;
+        public int DK;
         public byte[]i=new byte[13];
         Message msg;
         public int flag;
@@ -120,6 +122,9 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void setIP(String ip){
             IP = ip;
         }
+        public void setDK(int port){
+            DK = port;
+        }
         @Override
         public void run() {
             switch(flag){
@@ -129,7 +134,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg = myHandler.obtainMessage();
                         msg.obj = "开始连接";
                         myHandler.sendMessage(msg);
-                        socket.connect(new InetSocketAddress(IP, 502), 1000);
+                        socket.connect(new InetSocketAddress(IP, DK), 1000);
                         ou = socket.getOutputStream();
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接成功";
