@@ -145,7 +145,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 		{	
                     int msg = 0;
 		    msg = br.read();
-			msg = new int(msg.getbytes("GBK"),"UTF-8");
+			msg = new int(msg.getBytes("GBK"),"UTF-8");
 			if(msg>-1)
 			{
 				message_2 = handler.obtainMessage();
