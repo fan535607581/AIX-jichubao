@@ -40,7 +40,7 @@ import java.net.SocketTimeoutException;
 
 
 @DesignerComponent(version = 1,
-    description = "made in fan hao jie \n QQ:535607581@qq.com ",
+    description = "made in fan hao jie \n e-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -76,7 +76,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
     }
     @SimpleFunction(description = "start")
-    public void sendMessage(byte[] i){
+    public void sendMessage(byte[11] i){
         
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
