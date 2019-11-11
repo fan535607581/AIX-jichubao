@@ -140,7 +140,8 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 	    public void run() {
             try {
                 BufferedReader br = null;
-		int k =new InputStreamReader(socket.getInputStream()); 
+		    BufferedReader bk = null;
+		bk =new InputStreamReader(socket.getInputStream()); 
 		br = new BufferedReader(k);
                 while(true)
 		{	
