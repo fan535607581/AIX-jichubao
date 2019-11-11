@@ -156,7 +156,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 				if(msg == -1)
 				{
 				socket.close(); 
-				br.close;
+				br.close();
 				}
 				msg = msg + 256;
 				message_2 = handler.obtainMessage();
