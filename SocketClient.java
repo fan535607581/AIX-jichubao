@@ -39,8 +39,8 @@ import java.net.SocketTimeoutException;
 
 
 
-@DesignerComponent(version = 4,
-    description = " made in fan hao jie    \n\n   E-mail:535607581@qq.com ",
+@DesignerComponent(version = 6,
+    description = " made in fan hao jie     E-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -86,6 +86,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             mt.setText(s5,5);mt.setText(s6,6);mt.setText(s7,7);
             mt.setText(s8,8);mt.setText(s9,9);mt.setText(s10,10);
             mt.setText(s11,11);mt.setText(s12,12);
+            mt.start();//启动发送
         }else{
             GetMessage("连接未创建！");
         }
