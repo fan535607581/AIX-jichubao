@@ -39,8 +39,8 @@ import java.net.SocketTimeoutException;
 
 
 
-@DesignerComponent(version = 2,
-    description = " made in fan hao jie    \n   e-mail:535607581@qq.com ",
+@DesignerComponent(version = 3,
+    description = " made in fan hao jie    \n\n   e-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
