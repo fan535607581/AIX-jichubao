@@ -143,11 +143,17 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 		br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 while(true)
 		{	
-                	int msg = 0;  int msk = 0;
-			msg = br.read();
+                	int msg = 0;  int msk = 0; int msl = 0;
+			msl = br.read();
 			msk = msg;
-			msg = msg&0xff;
+			//msg = msg&0xff;
 			
+			for(int i = 0; i < 4; i++) 
+			{
+			    int k= (3-i) * 8;
+			    msg =(msl[i] & 0xFF) << k;
+			}
+
 			if(msk > -1)
 			{
 				message_2 = handler.obtainMessage();
