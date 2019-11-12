@@ -38,7 +38,7 @@ import java.util.Enumeration;
 
 
 @DesignerComponent(version = SocketUtil.VERSION,
-    description = " made in fan hao jie    \n   e-mail:535607581@qq.com ",
+    description = " made in fan hao jie    \n\n   e-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -46,7 +46,7 @@ import java.util.Enumeration;
 @SimpleObject(external = true)
 
 public class SocketUtil extends AndroidNonvisibleComponent {
-    public static final int VERSION = 2;
+    public static final int VERSION = 3;
     private static final String LOG_TAG = "SocketUtil";
     private ComponentContainer container;
     private Context context;
@@ -101,7 +101,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
             @Override
             public void run() {
                 super.run();
-                try { serverSocket = new ServerSocket(8000); }
+                try { serverSocket = new ServerSocket(5020); }
 		catch (IOException e) { e.printStackTrace();}
                 
                 getLocalIpAddress(serverSocket);
@@ -144,7 +144,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                 while(true)
 		{	
                     int msg = 0;
-		    msg = br.read()&0xff;
+		    msg = br.read() & 0xff;
 			if(msg>-1)
 			{
 				message_2 = handler.obtainMessage();
