@@ -38,7 +38,7 @@ import java.util.Enumeration;
 
 
 @DesignerComponent(version = SocketUtil.VERSION,
-    description = " made in fan hao jie    \n\r   E-mail:535607581@qq.com ",
+    description = " made in fan hao jie      E-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -143,28 +143,22 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 		br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 while(true)
 		{	
-                	int msg = 0;
-			msg = br.read()&0xff;
+                	int msg = 0; int msg = 0;
+			msg = br.read();
+			msk = msg;
+			msg = msg&0xff;
 			
-			if(msg>-1)
+			if(msk>-1)
 			{
 				message_2 = handler.obtainMessage();
 				message_2.obj = msg;
 				handler.sendMessage(message_2);
 			}
-			/*else
+			else
 			{
-				if(msk == -1)
-				{
-					socket.close(); 
-					br.close();
-				}
-				msg = msg + 256;
-				message_2 = handler.obtainMessage();
-				message_2.obj = msg;
-				handler.sendMessage(message_2);
+				socket.close(); 
+				br.close();
 			}
-			*/
                 }
 	        } catch (IOException e) {
                message_2 = handler.obtainMessage();
