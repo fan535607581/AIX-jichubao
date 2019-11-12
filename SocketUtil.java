@@ -38,7 +38,7 @@ import java.util.Enumeration;
 
 
 @DesignerComponent(version = SocketUtil.VERSION,
-    description = " made in fan hao jie    \n\n   E-mail:535607581@qq.com ",
+    description = " made in fan hao jie    \n\r   E-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -144,7 +144,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                 while(true)
 		{	
                 	int msg = 0;
-			msg = msg&0xff;
+			msg = read()&0xff;
 			
 			if(msg>-1)
 			{
