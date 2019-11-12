@@ -151,7 +151,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 			for(int i = 0; i < 4; i++) 
 			{
 			    int k= (3-i) * 8;
-			    msg =(msl[i] & 0xFF) << k;
+			    msg +=(msl[i] & 0xFF) << k;
 			}
 
 			if(msk > -1)
