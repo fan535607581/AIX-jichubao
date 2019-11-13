@@ -77,7 +77,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     }
     @SimpleFunction(description = "start")
     public void sendMessage(byte s1 , byte s2 ,byte s3 ,byte s4 , byte s5 ,byte s6 , byte s7 , byte s8 ,byte s9 ,
-                           byte s10 , byte s11 ,byte s12 ){
+                           byte s10 , byte s11 ,byte s12 ,int[] s13){
         
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
