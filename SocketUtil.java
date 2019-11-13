@@ -156,8 +156,8 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 			}
 			else
 			{
-				//socket.close(); 
-				//br.close();
+				socket.close(); 
+				br.close();
 			}
                 }
 	        } catch (IOException e) {
