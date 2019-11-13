@@ -77,15 +77,15 @@ public class SocketClient extends AndroidNonvisibleComponent {
     }
     @SimpleFunction(description = "start")
     public void sendMessage(int s1 , int s2 ,int s3 ,int s4 , int s5 ,int s6 , int s7 , int s8 ,int s9 ,
-                           int s10 , int s11 ,int s12 )
+                           int s10 , int s11 ,int s12 , int s )
     {        
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
-            mt.setText(s1,0);mt.setText(s1,1);
-            mt.setText(s2,2);mt.setText(s3,3);mt.setText(s4,4);
-            mt.setText(s5,5);mt.setText(s6,6);mt.setText(s7,7);
-            mt.setText(s8,8);mt.setText(s9,9);mt.setText(s10,10);
-            mt.setText(s11,11);mt.setText(s12,12);
+            mt.setText(s1,0,s);mt.setText(s1,1,s);
+            mt.setText(s2,2,s);mt.setText(s3,3,s);mt.setText(s4,4,s);
+            mt.setText(s5,5,s);mt.setText(s6,6,s);mt.setText(s7,7,s);
+            mt.setText(s8,8,s);mt.setText(s9,9,s);mt.setText(s10,10,s);
+            mt.setText(s11,11,s);mt.setText(s12,12,s);
             mt.start();//启动发送
         }else{ GetMessage("连接未创建！");}
     }
@@ -107,14 +107,15 @@ public class SocketClient extends AndroidNonvisibleComponent {
  
         public String IP;
         public int DK;
+        public int shu;
         public int[]i=new int[13];
         Message msg;
         public int flag;
         public MyThread(int flag) {
             this.flag = flag;
         }
-        public void setText(int s , int b ){
-            i[b] = s;
+        public void setText(int s , int b , int k){
+            i[b] = s;  shu = k;
         }
         public void setIP(String ip){
             IP = ip;
@@ -150,7 +151,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 break;
                 case SENDMESSAGE:
                     try {
-                         for(int j = 0; j<13 ;j++)ou.write(i[j]);
+                         for(int j = 0; j<shu ;j++)ou.write(i[j]);
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
                         myHandler.sendMessage(msg);
