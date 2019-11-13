@@ -77,8 +77,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
     }
     @SimpleFunction(description = "start")
     public void sendMessage(int s1 , int s2 ,int s3 ,int s4 , int s5 ,int s6 , int s7 , int s8 ,int s9 ,
-                           int s10 , int s11 ,int s12 , int[] s13 ){
-        
+                           int s10 , int s11 ,int s12 )
+    {        
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
             mt.setText(s1,0);mt.setText(s1,1);
@@ -87,9 +87,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             mt.setText(s8,8);mt.setText(s9,9);mt.setText(s10,10);
             mt.setText(s11,11);mt.setText(s12,12);
             mt.start();//启动发送
-        }else{
-            GetMessage("连接未创建！");
-        }
+        }else{ GetMessage("连接未创建！");}
     }
     @SimpleFunction(description = "start")
     public void connect(String ip , int port){
@@ -98,9 +96,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             mt.setDK(port);
             mt.setIP(ip);
             mt.start();
-        }else{
-            GetMessage("连接已创建！");
-        }
+        }else{ GetMessage("连接已创建！"); }
     }
 
     @SimpleEvent
