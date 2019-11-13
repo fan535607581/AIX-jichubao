@@ -146,7 +146,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                 	int msg = 0;  int msk = 0;
 			msg = br.read();
 			msk = msg;
-			msg = (msg<<25)>>25;
+			msg = (msg<<24)>>25;
 
 			if(msk > -1)
 			{
