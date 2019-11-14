@@ -46,7 +46,7 @@ import java.util.Enumeration;
 @SimpleObject(external = true)
 
 public class SocketUtil extends AndroidNonvisibleComponent {
-    public static final int VERSION = 8;//版本号
+    public static final int VERSION = 9;//版本号
     private static final String LOG_TAG = "SocketUtil";
     private ComponentContainer container;
     private Context context;
@@ -140,7 +140,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 	    @Override
 	    public void run() {
             try {
-		 BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"utf-8"));
+		 BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
 		    
                 while(true)
 		{	
