@@ -138,7 +138,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
 	    @Override
 	    public void run() {
             try {
-		 BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()) ， "utf-8");
+		 BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ，"utf-8"));
 		    
                 while(true)
 		{	
