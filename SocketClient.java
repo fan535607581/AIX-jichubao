@@ -39,7 +39,7 @@ import java.net.SocketTimeoutException;
 
 
 
-@DesignerComponent(version = 7,
+@DesignerComponent(version = 8,
     description = " made in fan hao jie     E-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
