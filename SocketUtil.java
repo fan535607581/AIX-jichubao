@@ -95,11 +95,11 @@ public class SocketUtil extends AndroidNonvisibleComponent {
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
     @SimpleFunction(description = "start")
-    public void receiveData(int s){
+    public void receiveData(int S){
         Thread thread = new Thread(){
             @Override
             public void run() {
-		int SB = s;
+		int SB = S;
                 super.run();
                 try { serverSocket = new ServerSocket(SB); }
 		catch (IOException e) { e.printStackTrace();}
