@@ -46,7 +46,7 @@ import java.util.Enumeration;
 @SimpleObject(external = true)
 
 public class SocketUtil extends AndroidNonvisibleComponent {
-    public static final int VERSION = 11;//版本号
+    public static final int VERSION = 12;//版本号
     private static final String LOG_TAG = "SocketUtil";
     private ComponentContainer container;
     private Context context;
@@ -147,9 +147,8 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                 	int msg = 0;  int msk = 0; int msb = 0;
 			msg = br.read();
 			msk = msg;
+			msb = msg>>8;
 			msg = msg&0xff;
-			msg = msg>>8;
-
 			if(msk > -1)
 			{
 				message_2 = handler.obtainMessage();
