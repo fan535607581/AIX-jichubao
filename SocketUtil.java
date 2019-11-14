@@ -95,13 +95,13 @@ public class SocketUtil extends AndroidNonvisibleComponent {
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
     @SimpleFunction(description = "start")
-    public void receiveData(){
+    public void receiveData(int k){
 
         Thread thread = new Thread(){
             @Override
             public void run() {
                 super.run();
-                try { serverSocket = new ServerSocket(5020); }
+                try { serverSocket = new ServerSocket(k); }
 		catch (IOException e) { e.printStackTrace();}
                 
                 getLocalIpAddress(serverSocket);
@@ -162,7 +162,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
                 }
 	        } catch (IOException e) {
                message_2 = handler.obtainMessage();
-                message_2.obj = "他好像不见了";
+                message_2.obj = "连接丢失";
                 handler.sendMessage(message_2);
                 try{socket.close();}catch(Exception e1){}
 	        }
