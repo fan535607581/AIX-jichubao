@@ -52,6 +52,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
     private Context context;
     String ip;
     int port;
+    int DK;
 
     private ServerSocket serverSocket = null;
     StringBuffer stringBuffer = new StringBuffer();
@@ -95,13 +96,13 @@ public class SocketUtil extends AndroidNonvisibleComponent {
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
     @SimpleFunction(description = "start")
-    public void receiveData(int S){
+    public void receiveData(int s){
+	    DK = s;
         Thread thread = new Thread(){
             @Override
             public void run() {
-		int SB = S;
                 super.run();
-                try { serverSocket = new ServerSocket(SB); }
+                try { serverSocket = new ServerSocket(DK); }
 		catch (IOException e) { e.printStackTrace();}
                 
                 getLocalIpAddress(serverSocket);
