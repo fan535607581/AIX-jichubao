@@ -101,7 +101,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 
     @SimpleEvent
     public void GetMessage(String s){
-        EventDispatcher.dispatchEvent(this, "GetMessage", "\n"+s);
+        EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
     class MyThread extends Thread {
  
