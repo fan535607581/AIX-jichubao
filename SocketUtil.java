@@ -99,7 +99,7 @@ public class SocketUtil extends AndroidNonvisibleComponent {
         Thread thread = new Thread(){
             @Override
             public void run() {
-		int SB = 5020;
+		int SB = s;
                 super.run();
                 try { serverSocket = new ServerSocket(SB); }
 		catch (IOException e) { e.printStackTrace();}
