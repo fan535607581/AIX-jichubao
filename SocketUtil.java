@@ -96,13 +96,11 @@ public class SocketUtil extends AndroidNonvisibleComponent {
     }
     @SimpleFunction(description = "start")
     public void receiveData(int s){
-	    int sb = 5020;
-
         Thread thread = new Thread(){
             @Override
             public void run() {
                 super.run();
-                try { serverSocket = new ServerSocket(sb); }
+                try { serverSocket = new ServerSocket(5020); }
 		catch (IOException e) { e.printStackTrace();}
                 
                 getLocalIpAddress(serverSocket);
