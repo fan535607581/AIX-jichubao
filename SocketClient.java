@@ -125,9 +125,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void setDK(int port){
             DK = port;
         }
-
-	    public ServerThread(Socket socket){this.socket = socket; }
-        
+	    
         @Override
         public void run() {
             BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
