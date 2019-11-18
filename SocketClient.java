@@ -143,6 +143,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         ServerSocket ss = new ServerSocket(10005);
                         Socket s = ss.accept();
                         String ip = s.getInetAddress().getHostAddress();
+                        ///////////////////////////
                         } catch (SocketTimeoutException aa) {
                             msg = myHandler.obtainMessage();
                             msg.obj = "连接超时";
@@ -153,7 +154,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
                             msg.obj = "未知错误";
                             myHandler.sendMessage(msg);
                             socket = null;
-                        //////////////////////////////////////////////////
                     }
                 break;
                 case SENDMESSAGE:
