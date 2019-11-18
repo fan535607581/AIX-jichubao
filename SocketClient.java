@@ -66,16 +66,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
  
     };
-	//////////////////////////////////
-	public Handler handler = new Handler()
-    {
-        @Override
-        public void handleMessage(Message msg)
-	{
-        	GetMessage(msg.obj.toString());
-        }
-    };
-	/////////////////////////////////////
     @SimpleFunction(description = "start")
     public void closeConnect(){
         if(socket != null){
@@ -145,12 +135,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 msg = br.read();   msk = msg;     msb = msg>>8;      msg = msg&0xff;
                 if(msk > -1)
                 {
-                    message_2 = handler.obtainMessage();
+                    message_2 = myhandler.obtainMessage();
                     message_2.obj = msb;
-                    handler.sendMessage(message_2);
-                    message_2 = handler.obtainMessage();
+                    myhandler.sendMessage(message_2);
+                    message_2 = myhandler.obtainMessage();
                     message_2.obj = msg;
-                    handler.sendMessage(message_2);
+                    myhandler.sendMessage(message_2);
                 }
                 else{  socket.close();  br.close();} 
                 } 
