@@ -63,6 +63,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public SocketClient(ComponentContainer container) {
         super(container.$form());
     }
+     ////////
+    private ServerSocket serverSocket = null;
+    StringBuffer stringBuffer = new StringBuffer();
+
+    private InputStream inputStream;
+    ///////
     public Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
