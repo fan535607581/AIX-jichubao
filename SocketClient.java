@@ -39,7 +39,7 @@ import java.net.SocketTimeoutException;
 
 
 
-@DesignerComponent(version = 9,
+@DesignerComponent(version = 10,
     description = " made in fan hao jie     E-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -129,21 +129,19 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void run() {
             try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));    
-			if(true)
-			{	
-				int msg = 0;  int msk = 0; int msb = 0;
-				msg = br.read();  msk = msg;  msb = msg>>8;  msg = msg&0xff;
-				if(msk > -1)
-				{
-					message_2 = myHandler.obtainMessage();
-					message_2.obj = msb;
-					myHandler.sendMessage(message_2);
-					message_2 = myHandler.obtainMessage();
-					message_2.obj = msg;
-					myHandler.sendMessage(message_2);
-				}
-				else{  socket.close();   br.close(); }
+			
+			int msg = 0;  int msk = 0; int msb = 0;
+			msg = br.read();  msk = msg;  msb = msg>>8;  msg = msg&0xff;
+			if(msk > -1)
+			{
+				message_2 = myHandler.obtainMessage();
+				message_2.obj = msb;
+				myHandler.sendMessage(message_2);
+				message_2 = myHandler.obtainMessage();
+				message_2.obj = msg;
+				myHandler.sendMessage(message_2);
 			}
+			else{  socket.close();   br.close(); }
 	        }
 		catch (IOException e)
 	    	{
@@ -167,8 +165,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         myHandler.sendMessage(msg);
                         ///////////////////////////////////////////////////////////////////
                         ServerSocket ss = new ServerSocket(DK);
-                        Socket s = ss.accept();
-                        String ip = s.getInetAddress().getHostAddress();
+                        //Socket s = ss.accept();
+                        //String ip = s.getInetAddress().getHostAddress();
                         ///////////////////////////////////////////////////////////////////
 
                     } catch (SocketTimeoutException aa) {
