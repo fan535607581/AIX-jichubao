@@ -127,22 +127,32 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    
         @Override
         public void run() {
-            BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
-            if(true)
-                {	
-                int msg = 0;  int msk = 0; int msb = 0;
-                msg = br.read();   msk = msg;     msb = msg>>8;      msg = msg&0xff;
-                if(msk > -1)
-                {
-                    message_2 = myHandler.obtainMessage();
-                    message_2.obj = msb;
-                    myHandler.sendMessage(message_2);
-                    message_2 = myHandler.obtainMessage();
-                    message_2.obj = msg;
-                    myHandler.sendMessage(message_2);
-                }
-                else{  socket.close();  br.close();} 
-                } 
+            try {
+			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));    
+			while(true)
+			{	
+				int msg = 0;  int msk = 0; int msb = 0;
+				msg = br.read();  msk = msg;  msb = msg>>8;  msg = msg&0xff;
+				if(msk > -1)
+				{
+					message_2 = myHandler.obtainMessage();
+					message_2.obj = msb;
+					myHandler.sendMessage(message_2);
+					message_2 = myHandler.obtainMessage();
+					message_2.obj = msg;
+					myHandler.sendMessage(message_2);
+				}
+				else{  socket.close();   br.close(); }
+			}
+	        }
+		catch (IOException e)
+	    	{
+			message_2 = myHandler.obtainMessage();
+			message_2.obj = "连接丢失";
+			myHandler.sendMessage(message_2);
+			try{socket.close();}catch(Exception e1){}
+	        }
+	//////////////////////
             switch(flag){
                 case CONNECT:
                     try {
