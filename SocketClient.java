@@ -49,6 +49,7 @@ import java.net.SocketTimeoutException;
 
 public class SocketClient extends AndroidNonvisibleComponent {
     Socket socket = null;
+    Socketsocket = null;
     OutputStream ou = null;
     String buffer = "";
     String geted1;
