@@ -157,7 +157,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg.obj = "开始连接";
                         myHandler.sendMessage(msg);
 			    
-			try { ServerSocket = new ServerSocket(DK); }//打开端口
+			try { serverSocket = new serverSocket(DK); }//打开端口
 			catch (IOException e) { e.printStackTrace();}//打开端口
 			    
                         socket.connect(new InetSocketAddress(IP, DK), 1000);
