@@ -133,21 +133,22 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    
         @Override
         public void run() {
+	///////////////
             try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));    
+		BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));    
 			
-			int msg = 0;  int msk = 0; int msb = 0;
-			msg = br.read();  msk = msg;  msb = msg>>8;  msg = msg&0xff;
-			if(msk > -1)
-			{
-				message_2 = myHandler.obtainMessage();
-				message_2.obj = msb;
-				myHandler.sendMessage(message_2);
-				message_2 = myHandler.obtainMessage();
-				message_2.obj = msg;
-				myHandler.sendMessage(message_2);
-			}
-			else{  socket.close();   br.close(); }
+		int msg = 0;  int msk = 0; int msb = 0;
+		msg = br.read();  msk = msg;  msb = msg>>8;  msg = msg&0xff;
+		if(msk > -1)
+		{
+			message_2 = myHandler.obtainMessage();
+			message_2.obj = msb;
+			myHandler.sendMessage(message_2);
+			message_2 = myHandler.obtainMessage();
+			message_2.obj = msg;
+			myHandler.sendMessage(message_2);
+		}
+		else{  socket.close();   br.close(); }
 	        }
 		catch (IOException e)
 	    	{
@@ -163,16 +164,16 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         socket = new Socket();
                         msg = myHandler.obtainMessage();
                         msg.obj = "开始连接";
-                        myHandler.sendMessage(msg);
-			    
-			try { serverSocket = new ServerSocket(DK); }
-			catch (IOException e) { e.printStackTrace();}
-			    
+                        myHandler.sendMessage(msg);   
                         socket.connect(new InetSocketAddress(IP, DK), 1000);
                         ou = socket.getOutputStream();
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接成功";
-                        myHandler.sendMessage(msg);    
+                        myHandler.sendMessage(msg);  
+			    
+			try { serverSocket = new ServerSocket(DK); }
+			catch (IOException e) { e.printStackTrace();}
+			    
                     } catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接超时";
