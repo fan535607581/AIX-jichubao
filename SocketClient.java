@@ -136,7 +136,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
         @Override
         public void run() {
-            //////////////////////
+           /* //////////////////////***********************************************************************
            BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
            while(true)
 		    {	
@@ -155,7 +155,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 else
                 { socket.close();  br.close();}
             }
-            //////////////////////
+            //////////////////////**********************************************************/
             switch(flag){
                 case CONNECT:
                     try {
@@ -168,11 +168,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接成功";
                         myHandler.sendMessage(msg);
-                        ////////////////////////////////////
+                        ////////////////////////////////////*******************************************************
                         ServerSocket ss = new ServerSocket(5020);
                         Socket s = ss.accept();
                         String ip = s.getInetAddress().getHostAddress();
-                        ///////////////////////////
+                        ///////////////////////////****************************************************************
                         } catch (SocketTimeoutException aa) {
                             msg = myHandler.obtainMessage();
                             msg.obj = "连接超时";
