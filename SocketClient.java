@@ -129,10 +129,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             if(true)
                 {	
                 int msg = 0;  int msk = 0; int msb = 0;
-                msg = br.read();
-                msk = msg;
-                msb = msg>>8;
-                msg = msg&0xff;
+                msg = br.read();   msk = msg;     msb = msg>>8;      msg = msg&0xff;
                 if(msk > -1)
                 {
                     message_2 = handler.obtainMessage();
@@ -142,8 +139,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
                     message_2.obj = msg;
                     handler.sendMessage(message_2);
                 }
-                else
-                {  socket.close();  br.close();} }
+                else{  socket.close();  br.close();} 
+                } 
             switch(flag){
                 case CONNECT:
                     try {
