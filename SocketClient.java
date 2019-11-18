@@ -43,7 +43,7 @@ import java.net.*;
 ///
 
 
-@DesignerComponent(version = 16,
+@DesignerComponent(version = 17,
     description = " made in fan hao jie     E-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
