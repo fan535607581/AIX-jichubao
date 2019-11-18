@@ -36,7 +36,11 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-
+////
+import java.net.ServerSocket;
+import java.io.*;
+import java.net.*;
+///
 
 
 @DesignerComponent(version = 11,
@@ -156,7 +160,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg.obj = "开始连接";
                         myHandler.sendMessage(msg);
 			    
-			serverSocket = new ServerSocket(DK); 
+			ServerSocket = new ServerSocket(DK); 
 			    
                         socket.connect(new InetSocketAddress(IP, DK), 1000);
                         ou = socket.getOutputStream();
