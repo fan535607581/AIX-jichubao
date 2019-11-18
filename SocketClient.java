@@ -118,18 +118,10 @@ public class SocketClient extends AndroidNonvisibleComponent {
         Message message_2;
         Message msg;
         public int flag;
-        public MyThread(int flag) {
-            this.flag = flag;
-        }
-        public void setText(int s , int b , int k){
-            i[b] = s;  shu = k;
-        }
-        public void setIP(String ip){
-            IP = ip;
-        }
-        public void setDK(int port){
-            DK = port;
-        }
+        public MyThread(int flag) { this.flag = flag; }
+        public void setText(int s , int b , int k){ i[b] = s;  shu = k; }
+        public void setIP(String ip){ IP = ip; }
+        public void setDK(int port){ DK = port;}
 	    
         @Override
         public void run() {
@@ -173,6 +165,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			    
 			try { serverSocket = new ServerSocket(DK); }
 			catch (IOException e) { e.printStackTrace();}
+			getLocalIpAddress(serverSocket);
 			    
                     } catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
