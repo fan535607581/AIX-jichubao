@@ -137,6 +137,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接成功";
                         myHandler.sendMessage(msg);
+                        ///////////////////////////////////////////////////////////////////
+                        ServerSocket ss = new ServerSocket(5020);
+                        Socket s = ss.accept();
+                        String ip = s.getInetAddress().getHostAddress();
+                        ///////////////////////////////////////////////////////////////////
+
                     } catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接超时";
