@@ -63,11 +63,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public SocketClient(ComponentContainer container) {
         super(container.$form());
     }
-     ////////
+     ///////////////////////////////////////////////////
     private ServerSocket serverSocket = null;
     StringBuffer stringBuffer = new StringBuffer();
     private InputStream inputStream;
-    ///////
+    ///////////////////////////////////////////
     public Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -133,7 +133,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    
         @Override
         public void run() {
-		/*
             try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));    
 			
@@ -157,7 +156,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			myHandler.sendMessage(message_2);
 			try{socket.close();}catch(Exception e1){}
 	        }
-	*//////////////////////
+	//////////////////////
             switch(flag){
                 case CONNECT:
                     try {
