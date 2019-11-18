@@ -66,6 +66,16 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }
  
     };
+	//////////////////////////////////
+	public Handler handler = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg)
+	{
+        	GetMessage(msg.obj.toString());
+        }
+    };
+	/////////////////////////////////////
     @SimpleFunction(description = "start")
     public void closeConnect(){
         if(socket != null){
