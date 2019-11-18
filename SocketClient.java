@@ -39,7 +39,7 @@ import java.net.SocketTimeoutException;
 
 
 
-@DesignerComponent(version = 10,
+@DesignerComponent(version = 11,
     description = " made in fan hao jie     E-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -80,10 +80,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
     {        
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
-            mt.setText(s1,0,s);mt.setText(s1,1,s);
-            mt.setText(s2,2,s);mt.setText(s3,3,s);mt.setText(s4,4,s);
-            mt.setText(s5,5,s);mt.setText(s6,6,s);mt.setText(s7,7,s);
-            mt.setText(s8,8,s);mt.setText(s9,9,s);mt.setText(s10,10,s);
+            mt.setText(s1,0,s);mt.setText(s1,1,s); mt.setText(s2,2,s);mt.setText(s3,3,s);mt.setText(s4,4,s);
+            mt.setText(s5,5,s);mt.setText(s6,6,s);mt.setText(s7,7,s); mt.setText(s8,8,s);mt.setText(s9,9,s);mt.setText(s10,10,s);
             mt.setText(s11,11,s);mt.setText(s12,12,s);
             mt.start();//启动发送
         }else{ GetMessage("连接未创建！");}
@@ -158,17 +156,15 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg = myHandler.obtainMessage();
                         msg.obj = "开始连接";
                         myHandler.sendMessage(msg);
+			    
+			try { serverSocket = new ServerSocket(DK); }//打开端口
+			catch (IOException e) { e.printStackTrace();}//打开端口
+			    
                         socket.connect(new InetSocketAddress(IP, DK), 1000);
                         ou = socket.getOutputStream();
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接成功";
-                        myHandler.sendMessage(msg);
-                        ///////////////////////////////////////////////////////////////////
-                        ServerSocket ss = new ServerSocket(DK);
-                        //Socket s = ss.accept();
-                        //String ip = s.getInetAddress().getHostAddress();
-                        ///////////////////////////////////////////////////////////////////
-
+                        myHandler.sendMessage(msg);    
                     } catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接超时";
