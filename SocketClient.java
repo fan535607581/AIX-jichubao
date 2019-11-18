@@ -125,7 +125,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    
         @Override
         public void run() {
-	///////////////
+	/*/////////////
             try {
 		BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));    
 			
@@ -149,7 +149,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			myHandler.sendMessage(message_2);
 			try{socket.close();}catch(Exception e1){}
 	        }
-	//////////////////////
+	*//////////////////////
             switch(flag){
                 case CONNECT:
                     try {
