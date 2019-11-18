@@ -43,7 +43,7 @@ import java.net.*;
 ///
 
 
-@DesignerComponent(version = 12,
+@DesignerComponent(version = 13,
     description = " made in fan hao jie     E-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -66,7 +66,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
      ////////
     private ServerSocket serverSocket = null;
     StringBuffer stringBuffer = new StringBuffer();
-
     private InputStream inputStream;
     ///////
     public Handler myHandler = new Handler() {
@@ -134,6 +133,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    
         @Override
         public void run() {
+		/*
             try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));    
 			
@@ -157,7 +157,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			myHandler.sendMessage(message_2);
 			try{socket.close();}catch(Exception e1){}
 	        }
-	//////////////////////
+	*//////////////////////
             switch(flag){
                 case CONNECT:
                     try {
@@ -166,8 +166,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg.obj = "开始连接";
                         myHandler.sendMessage(msg);
 			    
-			//try { serverSocket = new ServerSocket(DK); }
-			//catch (IOException e) { e.printStackTrace();}
+			try { serverSocket = new ServerSocket(DK); }
+			catch (IOException e) { e.printStackTrace();}
 			    
                         socket.connect(new InetSocketAddress(IP, DK), 1000);
                         ou = socket.getOutputStream();
