@@ -140,17 +140,17 @@ public class SocketClient extends AndroidNonvisibleComponent {
            BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
            while(true)
 		    {	
-                int msg = 0;  int msk = 0; int msb = 0;
-                msg = br.read();  msk = msg;
-                msb = msg>>8;  msg = msg&0xff;
-                if(msk > -1)
+               // int msg = 0;  int msk = 0; int msb = 0;
+              //  msg = br.read();  msk = msg;
+              //  msb = msg>>8;  msg = msg&0xff;
+              //  if(msk > -1)
                 {
-                    message_2 = handler.obtainMessage();
-                    message_2.obj = msb;
-                    handler.sendMessage(message_2);
-                    message_2 = handler.obtainMessage();
-                    message_2.obj = msg;
-                    handler.sendMessage(message_2);
+                  //  message_2 = handler.obtainMessage();
+                  //  message_2.obj = msb;
+                   // handler.sendMessage(message_2);
+                   // message_2 = handler.obtainMessage();
+                  //  message_2.obj = msg;
+                   // handler.sendMessage(message_2);
                 }
                 else
                 { socket.close();  br.close();}
