@@ -43,7 +43,7 @@ import java.net.*;
 ///
 
 
-@DesignerComponent(version = 15,
+@DesignerComponent(version = 16,
     description = " made in fan hao jie     E-mail:535607581@qq.com ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -163,10 +163,10 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg.obj = "连接成功";
                         myHandler.sendMessage(msg);  
 			    
-			try { serverSocket = new ServerSocket(DK); }
-			catch (IOException e) { e.printStackTrace();}
-			Socket s = ss.accept();
-       			String ip = s.getInetAddress().getHostAddress();
+			//try { serverSocket = new ServerSocket(DK); }
+			//catch (IOException e) { e.printStackTrace();}
+			//Socket s = ss.accept();
+       			//String ip = s.getInetAddress().getHostAddress();
 			    
                     } catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
