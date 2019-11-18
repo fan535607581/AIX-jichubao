@@ -49,7 +49,6 @@ import java.net.SocketTimeoutException;
 
 public class SocketClient extends AndroidNonvisibleComponent {
     Socket socket = null;
-    Socketsocket = null;
     OutputStream ou = null;
     String buffer = "";
     String geted1;
@@ -107,7 +106,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public int DK;
         public int shu;
         public int[]i=new int[13];
-        Socket socket;
         Message message_2;
         Message msg;
         public int flag;
@@ -158,7 +156,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg.obj = "开始连接";
                         myHandler.sendMessage(msg);
 			    
-			Serversocket s = new Serversocket(DK);
+			try { serverSocket = new ServerSocket(DK); }
+			catch (IOException e) { e.printStackTrace();}
 			    
                         socket.connect(new InetSocketAddress(IP, DK), 1000);
                         ou = socket.getOutputStream();
