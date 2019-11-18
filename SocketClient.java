@@ -165,7 +165,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			    
 			try { serverSocket = new ServerSocket(DK); }
 			catch (IOException e) { e.printStackTrace();}
-			getLocalIpAddress(serverSocket);
+			Socket s = ss.accept();
+       			String ip = s.getInetAddress().getHostAddress();
 			    
                     } catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
