@@ -109,6 +109,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public int DK;
         public int shu;
         public int[]i=new int[13];
+        Socket socket;
+        Message message_2;
         Message msg;
         public int flag;
         public MyThread(int flag) {
@@ -123,6 +125,9 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void setDK(int port){
             DK = port;
         }
+
+	    public ServerThread(Socket socket){this.socket = socket; }
+        
         @Override
         public void run() {
             BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
