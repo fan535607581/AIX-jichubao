@@ -36,8 +36,8 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-import java.io.*;
-import java.net.*;
+import java.io.*;//
+import java.net.*;//
 
 
 
@@ -139,16 +139,21 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接成功";
                         myHandler.sendMessage(msg);
-                    } catch (SocketTimeoutException aa) {
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "连接超时";
-                        myHandler.sendMessage(msg);
-                        socket = null;
-                    } catch (IOException e) {
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "未知错误";
-                        myHandler.sendMessage(msg);
-                        socket = null;
+                        ////////////////////////////////////
+                        ServerSocket ss = new ServerSocket(10005);
+                        Socket s = ss.accept();
+                        String ip = s.getInetAddress().getHostAddress();
+                        } catch (SocketTimeoutException aa) {
+                            msg = myHandler.obtainMessage();
+                            msg.obj = "连接超时";
+                            myHandler.sendMessage(msg);
+                            socket = null;
+                        } catch (IOException e) {
+                            msg = myHandler.obtainMessage();
+                            msg.obj = "未知错误";
+                            myHandler.sendMessage(msg);
+                            socket = null;
+                        //////////////////////////////////////////////////
                     }
                 break;
                 case SENDMESSAGE:
