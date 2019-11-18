@@ -48,6 +48,14 @@ import java.net.*;//
     iconName = "images/extension.png")
 
 @SimpleObject(external = true)
+public Handler handler = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg)
+	{
+        	GetMessage(msg.obj.toString());
+        }
+    };
 
 public class SocketClient extends AndroidNonvisibleComponent {
     Socket socket = null;
@@ -61,6 +69,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public SocketClient(ComponentContainer container) {
         super(container.$form());
     }
+
     public Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
