@@ -136,7 +136,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 {
                     message_2 = myHandler.obtainMessage();
                     message_2.obj = msb;
-                    myhandler.sendMessage(message_2);
+                    myHandler.sendMessage(message_2);
                     message_2 = myHandler.obtainMessage();
                     message_2.obj = msg;
                     myHandler.sendMessage(message_2);
