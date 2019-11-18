@@ -129,7 +129,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void run() {
             try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));    
-			while(true)
+			if(true)
 			{	
 				int msg = 0;  int msk = 0; int msb = 0;
 				msg = br.read();  msk = msg;  msb = msg>>8;  msg = msg&0xff;
