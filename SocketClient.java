@@ -43,8 +43,8 @@ import java.net.*;
 ///
 
 
-@DesignerComponent(version = 18,
-    description = " made in fan hao jie     E-mail:535607581@qq.com ",
+@DesignerComponent(version = 19,
+    description = " made in fan hao jie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -164,7 +164,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			myHandler.sendMessage(message_2);
 		  }
 		}catch(Exception ex){ ex.printStackTrace();}
-	*//////////////////////
+	/////////////////////
             switch(flag){
                 case CONNECT:
                     try {
