@@ -43,7 +43,7 @@ import java.net.*;
 ///
 
 
-@DesignerComponent(version = 19,
+@DesignerComponent(version = 20,
     description = " made in fan hao jie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -68,6 +68,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     StringBuffer stringBuffer = new StringBuffer();
     private InputStream inputStream;
     ///////////////////////////////////////////
+	
     public Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -125,33 +126,9 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    
         @Override
         public void run() {
-	/*/////////////
-            try {
-		BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));    
-			
-		int msg = 0;  int msk = 0; int msb = 0;
-		msg = br.read();  msk = msg;  msb = msg>>8;  msg = msg&0xff;
-		if(msk > -1)
-		{
-			message_2 = myHandler.obtainMessage();
-			message_2.obj = msb;
-			myHandler.sendMessage(message_2);
-			message_2 = myHandler.obtainMessage();
-			message_2.obj = msg;
-			myHandler.sendMessage(message_2);
-		}
-		else{  socket.close();   br.close(); }
-	        }
-		catch (IOException e)
-	    	{
-			message_2 = myHandler.obtainMessage();
-			message_2.obj = "连接丢失";
-			myHandler.sendMessage(message_2);
-			try{socket.close();}catch(Exception e1){}
-	        }
-		*////////////////////
+	////////////////////
 		try {
-		  Socket s = new Socket("192.168.1.206", 5020);
+		  ServerSocket s = new ServerSocket("192.168.1.206", 5020);
 		  InputStream inputStream = s.getInputStream();
 		  DataInputStream input = new DataInputStream(inputStream);
 		  byte[] b = new byte[10000];
@@ -159,9 +136,9 @@ public class SocketClient extends AndroidNonvisibleComponent {
 		  {
 		    int length = input.read(b);
 		    String Msg = new String(b, 0, length, "gb2312");
-			message_2 = myHandler.obtainMessage();
-			message_2.obj = Msg;
-			myHandler.sendMessage(message_2);
+		    message_2 = myHandler.obtainMessage();
+		    message_2.obj = Msg;
+		    myHandler.sendMessage(message_2);
 		  }
 		}catch(Exception ex){ ex.printStackTrace();}
 	/////////////////////
@@ -177,6 +154,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接成功";
                         myHandler.sendMessage(msg);  
+			   
                     } catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
                         msg.obj = "连接超时";
