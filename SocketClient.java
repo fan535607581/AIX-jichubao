@@ -43,7 +43,7 @@ import java.net.*;
 ///
 
 
-@DesignerComponent(version = 23,
+@DesignerComponent(version = 24,
     description = " made in fan hao jie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -141,13 +141,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    
         @Override
         public void run() {
-	/*///////////////////
+	///////////////////
 		try {
 		  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
-		  if(true)
-		  {
-			  int msg = 0;
-		    msg = br.read();
+			int msg = 0;
+		    	msg = br.read();
 			msg = msg&0xff;
 				message_2 = myHandler.obtainMessage();
 				message_2.obj = msg;
@@ -158,7 +156,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 		
 		  }
 		}catch(Exception ex){ ex.printStackTrace();}
-	////////////////////*/
+	////////////////////
             switch(flag){
                 case CONNECT:
                     try {
