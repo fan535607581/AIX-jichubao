@@ -110,6 +110,25 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public void GetMessage(String s){
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
+//////////////////////////
+@SimpleFunction(description = "start")
+    public void receiveData(int port)
+    {
+	DK = port;
+        Thread thread = new Thread()
+	{
+            @Override
+            public void run() 
+	    {
+                super.run();
+                try { serverSocket = new ServerSocket(DK); }
+		catch (IOException e) { e.printStackTrace();}
+                getLocalIpAddress(serverSocket);
+            }
+        };
+        thread.start();
+    }
+	/////////////////////
     class MyThread extends Thread {
  
         public String IP;
