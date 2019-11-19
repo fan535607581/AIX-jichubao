@@ -157,8 +157,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 				message_2.obj = msg;
 				myHandler.sendMessage(message_2);
 			}
-		  }
-	}catch(Exception ex){ ex.printStackTrace();}
+			}catch(Exception ex){ ex.printStackTrace();}
 	////////////////////
             switch(flag){
                 case CONNECT:
