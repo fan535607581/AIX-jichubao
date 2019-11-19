@@ -118,7 +118,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             public void run() 
 	    {
                 super.run();
-                try { serverSocket = new ServerSocket(5020); }
+                try { serverSocket = new ServerSocket(prot); }
 		catch (IOException e) { e.printStackTrace();}
             }
         };
@@ -144,7 +144,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	////////////////////
 		try {
 		  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
-		  while(true)
+		  if(true)
 		  {
 			  int msg = 0;
 		    msg = br.read();
