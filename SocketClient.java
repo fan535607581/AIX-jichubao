@@ -128,7 +128,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void run() {
 	////////////////////
 		try {
-		  ServerSocket s = new ServerSocket("192.168.1.206", 5020);
+		  ServerSocket s = new ServerSocket(5020);
 		  InputStream inputStream = s.getInputStream();
 		  DataInputStream input = new DataInputStream(inputStream);
 		  byte[] b = new byte[10000];
