@@ -43,7 +43,7 @@ import java.net.*;
 ///
 
 
-@DesignerComponent(version = 21,
+@DesignerComponent(version = 22,
     description = " made in fan hao jie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
