@@ -140,10 +140,13 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void setDK(int port){ DK = port;}
 	    
         @Override
-        public void run() {
+        public void run() 
+	{
 	///////////////////
 		try {
-		  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
+		  	BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
+			while(true)
+			{	
 			int msg = 0;
 		    	msg = br.read();
 			msg = msg&0xff;
@@ -153,9 +156,9 @@ public class SocketClient extends AndroidNonvisibleComponent {
 				message_2 = myHandler.obtainMessage();
 				message_2.obj = msg;
 				myHandler.sendMessage(message_2);
-		
+			}
 		  }
-		}catch(Exception ex){ ex.printStackTrace();}
+	}catch(Exception ex){ ex.printStackTrace();}
 	////////////////////
             switch(flag){
                 case CONNECT:
