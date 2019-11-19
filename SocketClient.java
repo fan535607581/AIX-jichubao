@@ -132,10 +132,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
 		  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
 		  while(true)
 		  {
-		   int msg = br.read();
+			  int msg = 0;
+		    msg = br.read();
 			msg = msg&0xff;
 				message_2 = handler.obtainMessage();
-				message_2.obj = msb;
+				message_2.obj = msg;
 				handler.sendMessage(message_2);
 				message_2 = handler.obtainMessage();
 				message_2.obj = msg;
