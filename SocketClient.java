@@ -36,11 +36,9 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-////
 import java.net.ServerSocket;
 import java.io.*;
 import java.net.*;
-///
 
 
 @DesignerComponent(version = 24,
@@ -63,12 +61,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public SocketClient(ComponentContainer container) {
         super(container.$form());
     }
-     /*////////////////////////////////////////////////------------------------------
-    private ServerSocket serverSocket = null;
-    StringBuffer stringBuffer = new StringBuffer();
-    private InputStream inputStream;
-    *///////////////////////////////////////////--------------------------------
-	
     public Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -108,23 +100,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public void GetMessage(String s){
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
-/*/////////////////////////------------------------------------------------
-@SimpleFunction(description = "start")
-    public void receiveData(int port)
-    {
-        Thread thread = new Thread()
-	{
-            @Override
-            public void run() 
-	    {
-                super.run();
-                try { serverSocket = new ServerSocket(5020); }
-		catch (IOException e) { e.printStackTrace();}
-            }
-        };
-        thread.start();
-    }
-	*/////////////////////------------------------------------------------------------------
     class MyThread extends Thread {
  
         public String IP;
