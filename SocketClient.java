@@ -118,7 +118,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             public void run() 
 	    {
                 super.run();
-                try { serverSocket = new ServerSocket(prot); }
+                try { serverSocket = new ServerSocket(5020); }
 		catch (IOException e) { e.printStackTrace();}
             }
         };
