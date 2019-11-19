@@ -43,7 +43,7 @@ import java.net.*;
 ///
 
 
-@DesignerComponent(version = 20,
+@DesignerComponent(version = 21,
     description = " made in fan hao jie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -80,9 +80,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         if(socket != null){
             mt = new MyThread(CLOSE);
             mt.start();
-        }else{
-            GetMessage("连接未创建！");
-        }
+        }else{  GetMessage("连接未创建！"); }
     }
     @SimpleFunction(description = "start")
     public void sendMessage(int s1 , int s2 ,int s3 ,int s4 , int s5 ,int s6 , int s7 , int s8 ,int s9 ,
@@ -122,7 +120,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 super.run();
                 try { serverSocket = new ServerSocket(5020); }
 		catch (IOException e) { e.printStackTrace();}
-                getLocalIpAddress(serverSocket);
             }
         };
         thread.start();
@@ -146,7 +143,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void run() {
 	////////////////////
 		try {
-		  ServerSocket s = new ServerSocket(5020);
 		  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
 		  while(true)
 		  {
