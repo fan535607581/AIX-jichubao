@@ -149,6 +149,21 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			myHandler.sendMessage(message_2);
 			try{socket.close();}catch(Exception e1){}
 	        }
+		*////////////////////
+		try {
+		  Socket s = new Socket("192.168.1.206", 5020);
+		  InputStream inputStream = s.getInputStream();
+		  DataInputStream input = new DataInputStream(inputStream);
+		  byte[] b = new byte[10000];
+		  while(true)
+		  {
+		    int length = input.read(b);
+		    String Msg = new String(b, 0, length, "gb2312");
+			message_2 = myHandler.obtainMessage();
+			message_2.obj = Msg;
+			myHandler.sendMessage(message_2);
+		  }
+		}catch(Exception ex){ ex.printStackTrace();}
 	*//////////////////////
             switch(flag){
                 case CONNECT:
