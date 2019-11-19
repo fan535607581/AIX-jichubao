@@ -135,12 +135,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			  int msg = 0;
 		    msg = br.read();
 			msg = msg&0xff;
-				message_2 = handler.obtainMessage();
+				message_2 = myHandler.obtainMessage();
 				message_2.obj = msg;
-				handler.sendMessage(message_2);
-				message_2 = handler.obtainMessage();
+				myHandler.sendMessage(message_2);
+				message_2 = myHandler.obtainMessage();
 				message_2.obj = msg;
-				handler.sendMessage(message_2);
+				myHandler.sendMessage(message_2);
 		
 		  }
 		}catch(Exception ex){ ex.printStackTrace();}
