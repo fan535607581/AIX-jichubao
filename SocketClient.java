@@ -63,11 +63,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public SocketClient(ComponentContainer container) {
         super(container.$form());
     }
-     /////////////////////////////////////////////////------------------------------
+     /*////////////////////////////////////////////////------------------------------
     private ServerSocket serverSocket = null;
     StringBuffer stringBuffer = new StringBuffer();
     private InputStream inputStream;
-    ///////////////////////////////////////////--------------------------------
+    *///////////////////////////////////////////--------------------------------
 	
     public Handler myHandler = new Handler() {
         @Override
@@ -108,7 +108,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public void GetMessage(String s){
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
-//////////////////////////------------------------------------------------
+/*/////////////////////////------------------------------------------------
 @SimpleFunction(description = "start")
     public void receiveData(int port)
     {
@@ -124,7 +124,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         };
         thread.start();
     }
-	/////////////////////------------------------------------------------------------------
+	*/////////////////////------------------------------------------------------------------
     class MyThread extends Thread {
  
         public String IP;
@@ -173,7 +173,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
                         myHandler.sendMessage(msg);
-		///////////////////----------------------------------------------------
+		///////////////////----------------------------------------------------数据接收区
 		try {
 		  	BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
 			while(true)
@@ -191,7 +191,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 				myHandler.sendMessage(message_2);
 			}
 			}catch(Exception ex){ ex.printStackTrace();}
-	////////////////////-----------------------------------------------------------------------------
+		//////////---------------------------------------------------------------数据接收区
                     }catch (IOException e) {
                         msg = myHandler.obtainMessage();
                         msg.obj = "未知错误";
