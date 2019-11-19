@@ -43,7 +43,7 @@ import java.net.*;
 ///
 
 
-@DesignerComponent(version = 22,
+@DesignerComponent(version = 23,
     description = " made in fan hao jie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -63,11 +63,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public SocketClient(ComponentContainer container) {
         super(container.$form());
     }
-     ///////////////////////////////////////////////////
+     /////////////////////////////////////////////////------------------------------
     private ServerSocket serverSocket = null;
     StringBuffer stringBuffer = new StringBuffer();
     private InputStream inputStream;
-    ///////////////////////////////////////////
+    ///////////////////////////////////////////--------------------------------
 	
     public Handler myHandler = new Handler() {
         @Override
@@ -108,7 +108,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public void GetMessage(String s){
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
-//////////////////////////
+//////////////////////////------------------------------------------------
 @SimpleFunction(description = "start")
     public void receiveData(int port)
     {
@@ -124,7 +124,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         };
         thread.start();
     }
-	/////////////////////
+	/////////////////////------------------------------------------------------------------
     class MyThread extends Thread {
  
         public String IP;
@@ -141,7 +141,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    
         @Override
         public void run() {
-	////////////////////
+	/*///////////////////
 		try {
 		  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
 		  if(true)
@@ -158,7 +158,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 		
 		  }
 		}catch(Exception ex){ ex.printStackTrace();}
-	/////////////////////
+	////////////////////*/
             switch(flag){
                 case CONNECT:
                     try {
