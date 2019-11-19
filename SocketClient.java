@@ -114,14 +114,13 @@ public class SocketClient extends AndroidNonvisibleComponent {
 @SimpleFunction(description = "start")
     public void receiveData(int port)
     {
-	DK = port;
         Thread thread = new Thread()
 	{
             @Override
             public void run() 
 	    {
                 super.run();
-                try { serverSocket = new ServerSocket(DK); }
+                try { serverSocket = new ServerSocket(5020); }
 		catch (IOException e) { e.printStackTrace();}
                 getLocalIpAddress(serverSocket);
             }
