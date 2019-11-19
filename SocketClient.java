@@ -129,13 +129,11 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	////////////////////
 		try {
 		  ServerSocket s = new ServerSocket(5020);
-		  InputStream inputStream = s.getInputStream();
-		  DataInputStream input = new DataInputStream(inputStream);
-		  byte[] b = new byte[10000];
+		  BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream() ,"Unicode"));
 		  while(true)
 		  {
-		    int length = input.read(b);
-		    String Msg = new String(b, 0, length, "gb2312");
+		    msg = br.read(b);
+		  
 		    message_2 = myHandler.obtainMessage();
 		    message_2.obj = Msg;
 		    myHandler.sendMessage(message_2);
