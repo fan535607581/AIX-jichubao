@@ -68,7 +68,7 @@ public class SocketClient extends AndroidNonvisibleComponent
         public Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {GetMessage(msg.obj.toString()); }
-    };
+    }
  
     @SimpleFunction(description = "start")
     public void connect(String ip , int port)
