@@ -68,7 +68,7 @@ public class SocketClient extends AndroidNonvisibleComponent
         public Handler myHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {GetMessage(msg.obj.toString()); }
-    }
+    };
  
     @SimpleFunction(description = "start")
     public void connect(String ip , int port)
@@ -83,22 +83,7 @@ public class SocketClient extends AndroidNonvisibleComponent
     }
 
     @SimpleEvent
-    public void GetMessage(String s){ EventDispatcher.dispatchEvent(this, "GetMessage", s); }
- 
-    class MyThread extends Thread 
-    {
- 
-        public String IP;
-        public int DK;
-
-        Message message_2;
-        Message msg;
-        public int flag;
-        public MyThread(int flag) { this.flag = flag; }
-        public void setText(int s , int b , int k){ i[b] = s;  js = k; }
-        public void setIP(String ip){ IP = ip; }
-        public void setDK(int port){ DK = port;}
-	    
-        @Override
-        public void run(){}
+    public void GetMessage(String s)
+    { 
+	    EventDispatcher.dispatchEvent(this, "GetMessage", s); 
     }
