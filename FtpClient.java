@@ -95,16 +95,11 @@ public class Ftp {
 		String localfilepath[] = { "C:\\tmp\\1.txt", "C:\\tmp\\2.log" };
 
 		Ftp fu = new Ftp();
-		/*
-		 * 使用默认的端口号、用户名、密码以及根目录连接FTP服务器
-		 */
+		/* * 使用默认的端口号、用户名、密码以及根目录连接FTP服务器 */
 		fu.connectServer("127.0.0.1", 22, "anonymous", "IEUser@", "/temp");
 
 		// 下载
-		for (int i = 0; i < filepath.length; i++)
-		{
-			fu.download(filepath[i], localfilepath[i]);
-		}
+		for (int i = 0; i < filepath.length; i++){fu.download(filepath[i], localfilepath[i]);}
 
 		String localfile = "E:\\号码.txt";
 		String remotefile = "/temp/哈哈.txt";
