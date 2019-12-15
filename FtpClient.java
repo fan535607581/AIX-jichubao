@@ -101,5 +101,4 @@ public class SocketClient extends AndroidNonvisibleComponent
 	    
         @Override
         public void run()  { ;}
-    }
-}
+    };
