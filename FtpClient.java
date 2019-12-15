@@ -24,15 +24,6 @@ public class Main {
             } else {
                 System.out.println("上传失败 !");
             }
-            System.out.println("=============下载文件操作===============");
-            // 下载一个文件
-            boolean isDown = FtpUtil.downloadFtpFile(ftpHost, ftpUserName, ftpPassword, ftpPort, ftpPath, downloadPath,
-                    uploadFileName, downloadFileName);
-            if (isDown) {
-                System.out.println("下载成功 !");
-            } else {
-                System.out.println("下载失败 !");
-            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println(e);
