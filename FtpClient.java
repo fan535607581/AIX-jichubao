@@ -2,7 +2,7 @@ package FTP;
 
 import java.io.*;
 
-public class Main {
+public void run() {
     public static void main(String[] args) {
         String ftpHost = "172.203.160.104";
         String ftpUserName = "GBNFTP";
