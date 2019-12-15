@@ -1,32 +1,105 @@
 package com.cn.test;
- 
+
+import com.google.appinventor.components.annotations.*;
+import com.google.appinventor.components.common.ComponentCategory;
+import com.google.appinventor.components.runtime.*;
+import com.google.appinventor.components.runtime.util.*;
+import com.google.appinventor.components.runtime.errors.YailRuntimeError;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.Color;
+import android.content.res.ColorStateList;
+import android.view.View;
+import android.graphics.drawable.RippleDrawable;
+import android.graphics.drawable.Drawable;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.app.Activity;
+import android.content.Context;
+import android.view.Menu;
+import android.widget.TextView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketTimeoutException;
+import java.net.ServerSocket;
+import java.io.*;
+import java.net.*;
+
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient; 
 import java.io.File;
 import java.io.FileInputStream;
  
-public class Test {
-    public static void testFTPClient() {
-        try {
-            FTPClient ftpClient = new FTPClient();  //创建一个FTPClient对象        
-            ftpClient.connect("192.168.41.99", 21);   //创建ftp链接
-            ftpClient.login("anonymous", ""); //登录ftp，使用用戶名和密碼，没有设置的话使用anonymous，密码随意
-            FileInputStream inputStream = new FileInputStream(new File("E:\\q.jar"));     //读取本地文件
-            //设置为被动模式(如上传文件夹成功，不能上传文件，注释这行，否则报错refused:connect  )
-            //ftpClient.enterLocalPassiveMode();
-            //设置上传路径
-            ftpClient.changeWorkingDirectory("pub/data");
-            //修改上传文件格式   2是二进制流
-            ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
-            //System.out.println("1");
-            //上传文件
-            ftpClient.storeFile("q2.jar", inputStream);
-            //System.out.println("2");
-            //关闭链接
-            ftpClient.logout();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+
+@DesignerComponent(version = 1,
+    description = "made in fanhaojie",
+    category = ComponentCategory.EXTENSION,
+    nonVisible = true,
+    iconName = "images/extension.png")
+
+@SimpleObject(external = true)
+
+public class SocketClient extends AndroidNonvisibleComponent
+   {
+        Socket socket = null;
+        OutputStream ou = null;
+        String buffer = "";
+        String geted1;
+        MyThread mt;
+        final int CONNECT = 100001;
+        final int SENDMESSAGE = 100002;
+        final int CLOSE = 100003;
+        public SocketClient(ComponentContainer container) {super(container.$form()); }
+        public Handler myHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {GetMessage(msg.obj.toString()); }
+    };
+ 
+    @SimpleFunction(description = "start")
+    public void connect(String ip , int port)
+    {
+        if(socket == null)
+        {
+            mt = new MyThread(CONNECT);
+            mt.setDK(port);
+            mt.setIP(ip);
+            mt.start();
+        }else{ GetMessage("连接创建失败！"); }
     }
-    public static void main(String[] args) { testFTPClient(); }
-}
+
+    @SimpleEvent
+    public void GetMessage(String s){ EventDispatcher.dispatchEvent(this, "GetMessage", s); }
+ 
+    class MyThread extends Thread 
+    {
+ 
+        public String IP;
+        public int DK;
+
+        Message message_2;
+        Message msg;
+        public int flag;
+        public MyThread(int flag) { this.flag = flag; }
+        public void setText(int s , int b , int k){ i[b] = s;  js = k; }
+        public void setIP(String ip){ IP = ip; }
+        public void setDK(int port){ DK = port;}
+	    
+        @Override
+        public void run()  { ;}
+    }
