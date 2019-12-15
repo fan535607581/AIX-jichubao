@@ -100,5 +100,5 @@ public class SocketClient extends AndroidNonvisibleComponent
         public void setDK(int port){ DK = port;}
 	    
         @Override
-        public void run()  { ;}
-    };
+        public void run(){}
+    }
