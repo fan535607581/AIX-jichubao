@@ -1,4 +1,4 @@
-package cn.roger.socket;
+package ftpkehuduan.test;
 
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.common.ComponentCategory;
@@ -39,6 +39,12 @@ import java.net.SocketTimeoutException;
 import java.net.ServerSocket;
 import java.io.*;
 import java.net.*;
+
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
+import java.io.File;
+import java.io.FileInputStream;
+
 
 
 @DesignerComponent(version = 1,
