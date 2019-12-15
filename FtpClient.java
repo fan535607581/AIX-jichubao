@@ -16,8 +16,8 @@ public class Ftp {
 	private FtpClient ftpClient; //FTP客户端
 
 	/* @param user 用户名* @param password  密码 * @param path  服务器路径 * @author 周玲斌 */
-	public void connectServer(String ip, int port, String user,
-			String password, String path) {
+	public void connectServer(String ip, int port, String user,String password, String path) 
+	{
 		try {
 			/* ******连接服务器的两种方法****** */
 			// 第一种方法
@@ -86,26 +86,6 @@ public class Ftp {
 	}
 
 
-	}
-
-	public static void main(String agrs[]) 
-	{
-
-		String filepath[] = { "/temp/aa.txt", "/temp/regist.log" };
-		String localfilepath[] = { "C:\\tmp\\1.txt", "C:\\tmp\\2.log" };
-
-		Ftp fu = new Ftp();
-		/* * 使用默认的端口号、用户名、密码以及根目录连接FTP服务器 */
-		fu.connectServer("127.0.0.1", 22, "anonymous", "IEUser@", "/temp");
-
-		// 下载
-		for (int i = 0; i < filepath.length; i++){fu.download(filepath[i], localfilepath[i]);}
-
-		String localfile = "E:\\号码.txt";
-		String remotefile = "/temp/哈哈.txt";
-		// 上传
-		fu.upload(localfile, remotefile);
-		fu.closeConnect();
 	}
 }
 }
