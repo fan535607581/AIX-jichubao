@@ -30,9 +30,9 @@ public class Ftp {
 			// 设置成2进制传输
 			ftpClient.binary();
 			System.out.println("login success!");
-			if (path.length() != 0) {
-				// 把远程系统上的目录切换到参数path所指定的目录
-				ftpClient.cd(path);
+			if (path.length() != 0)
+			{	
+				ftpClient.cd(path);// 把远程系统上的目录切换到参数path所指定的目录
 			}
 			ftpClient.binary();
 		} catch (IOException ex) {
@@ -41,12 +41,7 @@ public class Ftp {
 		}
 	}
 
-	/**
-	 * 关闭连接
-	 * 
-	 * @author 周玲斌
-	 * @date 2012-7-11
-	 */
+	/*关闭连接 */
 	public void closeConnect() {
 		try {
 			ftpClient.closeServer();
@@ -58,61 +53,43 @@ public class Ftp {
 		}
 	}
 
-	/**
-	 * 上传文件
-	 * 
-	 * @param localFile
-	 *            本地文件
-	 * @param remoteFile
-	 *            远程文件
-	 * @author 周玲斌
-	 * @date 2012-7-11
-	 */
+	/* * 上传文件 * @param localFile本地文件  * @param remoeFile远程文件 */
 	public void upload(String localFile, String remoteFile) {
 		this.localfilename = localFile;
 		this.remotefilename = remoteFile;
 		TelnetOutputStream os = null;
 		FileInputStream is = null;
-		try {
-			// 将远程文件加入输出流中
-			os = ftpClient.put(this.remotefilename);
-			// 获取本地文件的输入流
-			File file_in = new File(this.localfilename);
-			is = new FileInputStream(file_in);
-			// 创建一个缓冲区
-			byte[] bytes = new byte[1024];
+		try {	
+			os = ftpClient.put(this.remotefilename);// 将远程文件加入输出流中
+			File file_in = new File(this.localfilename);// 获取本地文件的输入流
+			is = new FileInputStream(file_in);			
+			byte[] bytes = new byte[1024];// 创建一个缓冲区
 			int c;
-			while ((c = is.read(bytes)) != -1) {
-				os.write(bytes, 0, c);
-			}
+			while ((c = is.read(bytes)) != -1) {os.write(bytes, 0, c);}
 			System.out.println("upload success");
 		} catch (IOException ex) {
 			System.out.println("not upload");
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
-		} finally {
-			try {
-				if (is != null) {
-					is.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (os != null) {
-						os.close();
-					}
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+		}
+		finally {
+			try {if (is != null) {is.close();}
 			}
+			catch (IOException e) {e.printStackTrace();} 
+			
+		finally {
+			try {if (os != null) {os.close();}
+			} 
+			catch (IOException e) {e.printStackTrace();}
+		}
 		}
 	}
 
 
 	}
 
-	public static void main(String agrs[]) {
+	public static void main(String agrs[]) 
+	{
 
 		String filepath[] = { "/temp/aa.txt", "/temp/regist.log" };
 		String localfilepath[] = { "C:\\tmp\\1.txt", "C:\\tmp\\2.log" };
@@ -124,7 +101,8 @@ public class Ftp {
 		fu.connectServer("127.0.0.1", 22, "anonymous", "IEUser@", "/temp");
 
 		// 下载
-		for (int i = 0; i < filepath.length; i++) {
+		for (int i = 0; i < filepath.length; i++)
+		{
 			fu.download(filepath[i], localfilepath[i]);
 		}
 
