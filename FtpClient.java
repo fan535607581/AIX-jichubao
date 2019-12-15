@@ -46,15 +46,14 @@ import java.io.File;
 import java.io.FileInputStream;
  
 
-
+/******************************************
 @DesignerComponent(version = 1,
     description = "made in fanhaojie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
-
+***************************************/
 @SimpleObject(external = true)
-
 public class SocketClient extends AndroidNonvisibleComponent
    {
         Socket socket = null;
@@ -103,3 +102,4 @@ public class SocketClient extends AndroidNonvisibleComponent
         @Override
         public void run()  { ;}
     }
+}
