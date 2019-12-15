@@ -1,91 +1,32 @@
-package com.cloudpower.util;
-
+package com.cn.test;
+ 
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient; 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import sun.net.TelnetInputStream;
-import sun.net.TelnetOutputStream;
-import sun.net.ftp.FtpClient;
-
-public class Ftp {
-
-	private String localfilename; //本地文件名	
-	private String remotefilename; //远程文件名
-	private FtpClient ftpClient; //FTP客户端
-
-	/* @param user 用户名* @param password  密码 * @param path  服务器路径 * @author 周玲斌 */
-	public void connectServer(String ip, int port, String user,String password, String path) 
-	{
-		try {
-			/* ******连接服务器的两种方法****** */
-			// 第一种方法
-			// ftpClient = new FtpClient();
-			// ftpClient.openServer(ip, port);
-			// 第二种方法
-			ftpClient = new FtpClient(ip);
-
-			ftpClient.login(user, password);
-			// 设置成2进制传输
-			ftpClient.binary();
-			System.out.println("login success!");
-			if (path.length() != 0)
-			{	
-				ftpClient.cd(path);// 把远程系统上的目录切换到参数path所指定的目录
-			}
-			ftpClient.binary();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-			throw new RuntimeException(ex);
-		}
-	}
-
-	/*关闭连接 */
-	public void closeConnect() {
-		try {
-			ftpClient.closeServer();
-			System.out.println("disconnect success");
-		} catch (IOException ex) {
-			System.out.println("not disconnect");
-			ex.printStackTrace();
-			throw new RuntimeException(ex);
-		}
-	}
-
-	/* * 上传文件 * @param localFile本地文件  * @param remoeFile远程文件 */
-	public void upload(String localFile, String remoteFile) {
-		this.localfilename = localFile;
-		this.remotefilename = remoteFile;
-		TelnetOutputStream os = null;
-		FileInputStream is = null;
-		try {	
-			os = ftpClient.put(this.remotefilename);// 将远程文件加入输出流中
-			File file_in = new File(this.localfilename);// 获取本地文件的输入流
-			is = new FileInputStream(file_in);			
-			byte[] bytes = new byte[1024];// 创建一个缓冲区
-			int c;
-			while ((c = is.read(bytes)) != -1) {os.write(bytes, 0, c);}
-			System.out.println("upload success");
-		} catch (IOException ex) {
-			System.out.println("not upload");
-			ex.printStackTrace();
-			throw new RuntimeException(ex);
-		}
-		finally {
-			try {if (is != null) {is.close();}
-			}
-			catch (IOException e) {e.printStackTrace();} 
-			
-		finally {
-			try {if (os != null) {os.close();}
-			} 
-			catch (IOException e) {e.printStackTrace();}
-		}
-		}
-	}
-
-
-	}
-}
+ 
+public class Test {
+    public static void testFTPClient() {
+        try {
+            FTPClient ftpClient = new FTPClient();  //创建一个FTPClient对象        
+            ftpClient.connect("192.168.41.99", 21);   //创建ftp链接
+            ftpClient.login("anonymous", ""); //登录ftp，使用用戶名和密碼，没有设置的话使用anonymous，密码随意
+            FileInputStream inputStream = new FileInputStream(new File("E:\\q.jar"));     //读取本地文件
+            //设置为被动模式(如上传文件夹成功，不能上传文件，注释这行，否则报错refused:connect  )
+            //ftpClient.enterLocalPassiveMode();
+            //设置上传路径
+            ftpClient.changeWorkingDirectory("pub/data");
+            //修改上传文件格式   2是二进制流
+            ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
+            //System.out.println("1");
+            //上传文件
+            ftpClient.storeFile("q2.jar", inputStream);
+            //System.out.println("2");
+            //关闭链接
+            ftpClient.logout();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String[] args) { testFTPClient(); }
 }
