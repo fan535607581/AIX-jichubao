@@ -38,9 +38,6 @@ public class SocketClient extends AndroidNonvisibleComponent
     String geted1;
     MyThread mt;
     final int CONNECT = 100001;
-    final int SENDMESSAGE = 100002;
-    final int CLOSE = 100003;
-    public SocketClient(ComponentContainer container) {super(container.$form()); }
     public Handler myHandler = new Handler() 
     {
         @Override
