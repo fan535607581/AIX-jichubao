@@ -46,10 +46,10 @@ public class SocketClient extends AndroidNonvisibleComponent
     }
  };
     @SimpleFunction(description = "start")
-    public void closeConnect()
+    public void startConnect()
     {
         if(socket != null){
-            mt = new MyThread(CLOSE);
+            mt = new MyThread(CONNECT);
             mt.start();
         }else{  GetMessage("连接未创建！"); }
     }
