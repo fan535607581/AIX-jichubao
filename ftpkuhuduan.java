@@ -98,3 +98,4 @@ public class SocketClient extends AndroidNonvisibleComponent
             }
         }
     }
+}
