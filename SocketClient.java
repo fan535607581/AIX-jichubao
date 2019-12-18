@@ -49,7 +49,7 @@ import java.net.*;
 
 @SimpleObject(external = true)
 
-public class ftpkuhuduan extends AndroidNonvisibleComponent 
+public class SocketClient extends AndroidNonvisibleComponent 
 {
     Socket socket = null;
     OutputStream ou = null;
