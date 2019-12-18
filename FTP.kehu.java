@@ -1,4 +1,4 @@
-package ftp.ke.hu;
+package ftp.kehu;
 
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.common.ComponentCategory;
@@ -13,7 +13,7 @@ import com.google.appinventor.components.runtime.errors.YailRuntimeError;
     iconName = "images/extension.png")
 
 @SimpleObject(external = true)
-public class MyExtension extends AndroidNonvisibleComponent 
+public class FTP.kehu extends AndroidNonvisibleComponent 
 {
     public static final int VERSION = 1;
     private static final String LOG_TAG = "MyExtension";
