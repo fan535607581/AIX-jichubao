@@ -6,8 +6,8 @@ import com.google.appinventor.components.runtime.*;
 import com.google.appinventor.components.runtime.util.*;
 import com.google.appinventor.components.runtime.errors.YailRuntimeError;
 
-@DesignerComponent(version = MyExtension.VERSION,
-    description = "by Roger Young",
+@DesignerComponent(version = FTPClient.VERSION,
+    description = "made in fan hao jie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -16,7 +16,7 @@ import com.google.appinventor.components.runtime.errors.YailRuntimeError;
 public class FTPClient extends AndroidNonvisibleComponent 
 {
     public static final int VERSION = 1;
-    private static final String LOG_TAG = "MyExtension";
+    private static final String LOG_TAG = "FTPClient";
 
-    public MyExtension(ComponentContainer container) {super(container.$form());}
+    public FTPClient(ComponentContainer container) {super(container.$form());}
 }
