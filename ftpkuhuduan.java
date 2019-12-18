@@ -30,7 +30,8 @@ import java.net.*;
 
 @SimpleObject(external = true)
 
-public class SocketClient extends AndroidNonvisibleComponent {
+public class SocketClient extends AndroidNonvisibleComponent 
+{
     Socket socket = null;
     OutputStream ou = null;
     String buffer = "";
@@ -40,32 +41,25 @@ public class SocketClient extends AndroidNonvisibleComponent {
     final int SENDMESSAGE = 100002;
     final int CLOSE = 100003;
     public SocketClient(ComponentContainer container) {super(container.$form()); }
-    public Handler myHandler = new Handler() {
+    public Handler myHandler = new Handler() 
+    {
         @Override
-        public void handleMessage(Message msg) {GetMessage(msg.obj.toString()); }
-    };
+        public void handleMessage(Message msg)
+	{GetMessage(msg.obj.toString()); 
+    }
+ };
     @SimpleFunction(description = "start")
-    public void closeConnect(){
+    public void closeConnect()
+    {
         if(socket != null){
             mt = new MyThread(CLOSE);
             mt.start();
         }else{  GetMessage("连接未创建！"); }
     }
+	
     @SimpleFunction(description = "start")
-    public void sendMessage(String s)
-    {  
-	 int k = s.length()/3;
-        if(socket != null){
-            mt = new MyThread(SENDMESSAGE);
-	    for(int j = 0; j<k ;j++)
-	    {
-		   mt.setText(Integer.parseInt(s.substring(j*3,(j+1)*3)), j , k );
-	    }
-            mt.start();//启动发送
-        }else{ GetMessage("连接未创建！");}
-    }
-    @SimpleFunction(description = "start")
-    public void connect(String ip , int port){
+    public void connect(String ip , int port)
+    {
         if(socket == null){
             mt = new MyThread(CONNECT);
             mt.setDK(port);
@@ -75,10 +69,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
     }
 
     @SimpleEvent
-    public void GetMessage(String s){
+    public void GetMessage(String s)
+    {
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
-    class MyThread extends Thread {
+    class MyThread extends Thread 
+    {
  
         public String IP;
         public int DK;
@@ -95,82 +91,10 @@ public class SocketClient extends AndroidNonvisibleComponent {
         @Override
         public void run() 
 	{
-            switch(flag){
+            switch(flag)
+	    {
                 case CONNECT:
-                    try {
-                        socket = new Socket();
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "开始连接";
-                        myHandler.sendMessage(msg);
-			    
-			try {   
-			socket.connect(new InetSocketAddress(IP, DK), 1000);
-			ou = socket.getOutputStream();
-			msg = myHandler.obtainMessage();
-			msg.obj = "连接成功";
-			myHandler.sendMessage(msg);  
-			 } catch (SocketTimeoutException aa) {
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "连接错误";
-                        myHandler.sendMessage(msg);
-                        socket = null;}
-			    
-                    } catch (SocketTimeoutException aa) {
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "连接超时";
-                        myHandler.sendMessage(msg);
-                        socket = null;
-                    } catch (IOException e) {
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "连接错误";
-                        myHandler.sendMessage(msg);
-                        socket = null;
-                    }
-                break;
-                case SENDMESSAGE:
-                    try {
-			ou.write(0);
-                        for(int j = 0; j<js ;j++)ou.write(i[j]);
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "发送完毕";
-                        myHandler.sendMessage(msg);
-			    
-			try {	
-			     int msy = 0;  byte[] b = new byte[255];	int k = 0;
-			     msy = socket.getInputStream().read(b);
-			     if( msy >= 0)	
-				for(int j = 0; j<(b[5]+6) ; j++)
-				{
-					message_2 = myHandler.obtainMessage();
-					message_2.obj = b[j]&0xff;
-					myHandler.sendMessage(message_2);
-				}
-			     }catch (IOException e) {
-				msg = myHandler.obtainMessage();
-				msg.obj = "接收错误";
-				myHandler.sendMessage(msg);}
-			    
-                    }catch (IOException e) {
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "发送错误";
-                        myHandler.sendMessage(msg);	
-                    }
-                break;
-                case CLOSE:
-                    try {
-                        ou.close();
-                        socket.close();
-                        socket = null;
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "关闭";
-                        myHandler.sendMessage(msg);
-                    }catch (IOException e) {
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "未知错误";
-                        myHandler.sendMessage(msg);
-                    }
-                break;
+                    try{} catch (IOException e){}break; 
             }
         }
     }
-}
